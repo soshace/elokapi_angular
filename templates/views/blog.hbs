@@ -1,0 +1,47 @@
+<div class="columns twelve">
+    <div class="top-card clearfix">
+        <article>
+            <div class="content-wrapper">
+                <a href="#">
+                    <img src="http://lorempixel.com/450/238" alt="" width="946" height="500"/>
+
+                    <div class="header-info">
+                        <h1>This is just a testing header for the head information kept it</h1>
+                    </div>
+                </a>
+            </div>
+        </article>
+    </div>
+</div>
+
+<!-- main article-content     -->
+<div class="main-article-content clearfix">
+    <div class="columns twelve">
+
+		{{# each data.posts.results}}
+            <article class="card card-split color-divertido">
+                <a href="{{postUrl slug}}">
+                    <div class="split-image"
+                         style="background-image:url({{image.url}});">
+
+                    </div>
+
+                    <div class="header-info">
+                        <h1>{{{title}}}</h1>
+                    </div>
+                    <div class="card-meta-data clearfix">
+                        <span class="visitas">322 Visitas</span>
+                        <time class="time-ago">2 hours ago</time>
+                    </div>
+                </a>
+
+            </article>
+		{{/each}}
+        <div class="post-nav-container clearfix">
+            <a href="#" alt="">Newer Posts &rarr;</a>
+            <a href="#" alt="">&larr; Older Posts</a>
+        </div>
+
+
+    </div>
+</div>

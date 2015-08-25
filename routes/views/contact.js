@@ -9,5 +9,5 @@ exports = module.exports = function(req, res) {
   locals.enquiryTypes = Enquiry.fields.enquiryType.ops;
   
   // Render the view
-  view.render('app/contact');
+  view.render('contact');
 };

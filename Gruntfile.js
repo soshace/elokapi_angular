@@ -97,24 +97,6 @@ module.exports = function(grunt) {
 			}
 		},
 
-		jade: {
-			mobicompi: {
-		    options: {
-		    	pretty: true,
-		      data: {
-		        debug: false
-		      }
-		    },
-		    files: {
-		      "mobile/www/index.html": ["templates/views/app/app.jade"],
-		      "mobile/www/blog.html": ["templates/views/app/blog.jade"],
-		      "mobile/www/app/contact.html": ["templates/views/app/contact.jade"],
-		      "mobile/www/app/gallery.html": ["templates/views/app/gallery.jade"],
-		      "mobile/www/app/post.html": ["templates/views/app/post.jade"]
-		    }
-		  }
-		},
-
 		copy: {
 			mobicopy: {
 				files: [
@@ -162,7 +144,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('mobilegen', function () {
 		grunt.task.run([
 			'clean:mobiclean',
-			'jade:mobicompi',
 			'copy:mobicopy'
 		]);
 	});

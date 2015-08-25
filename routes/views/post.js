@@ -6,5 +6,5 @@ exports = module.exports = function(req, res) {
     locals = res.locals;
   
   // Render the view
-  view.render('app/post');
+  view.render('post');
 };

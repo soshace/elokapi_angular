@@ -1,0 +1,176 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" ng-app="mainApp" class="no-js" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" ng-app="mainApp" class="no-js" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" ng-app="mainApp" class="no-js" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" ng-app="mainApp" class="no-js" lang=""> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Hello U</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="/styles/site.css">
+
+    <!-- FACEBOOK INITIALIZATION -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.async=true;
+        js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.3&appId=1609874635937523";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <!-- FACEBOOK INITIALIZATION -->
+
+</head>
+<body class="body" id="body">
+
+<!---------------------------------
+--------------Header------------ -->
+<header class="header" id="header">
+    <div class="header-container">
+        <div class="columns twelve">
+            <div class="logo">
+                <a href="#"><span class="pink">Circo</span><span class="lightblack">viral</span></a>
+            </div>
+            <nav class="nav-collapse">
+                <ul>
+                    <li>
+                        <a href="#">
+                            <div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: #C9DE0F;"></div>
+                            <div>OMG</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: rgb(229, 0, 67);"></div>
+                            <div>Divertido</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: rgb(255, 190, 5);"></div>
+                            <div>Animales</div>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: rgb(0, 177, 235);"></div>
+                            <div>Trucos</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: rgb(219, 43, 234);"></div>
+                            <div>Adorable</div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: rgb(10, 210, 90);"></div>
+                            <div>Videos</div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="like-us-button">
+                    <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fcircoviral&amp;width=147&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21&amp;appId=674350519339283" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:147px; height:21px;vertical-align:middle;" allowTransparency="true"></iframe>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<!---------------------------------
+------------//Header-------------->
+
+<!---------------------------------
+--------------Main Content------ -->
+<section id="main-content" class="main-content clearfix">
+    <div class="container">
+        <!--
+        Flash messages allow you to display once-off status messages to users, e.g. form
+        validation errors, success messages, etc
+    -->
+		{{#if messages}}
+            <div id="flash-messages" class="container">
+				{{#if messages.info}}
+                    <div class="alert alert-info">
+						{{{flashMessages messages.info}}}
+                    </div>
+				{{/if}}
+				{{#if messages.success}}
+                    <div class="alert alert-success">
+						{{{flashMessages messages.success}}}
+                    </div>
+				{{/if}}
+				{{#if messages.warning}}
+                    <div class="alert alert-warning">
+						{{{flashMessages messages.warning}}}
+                    </div>
+				{{/if}}
+				{{#if messages.error}}
+                    <div class="alert alert-danger">
+						{{{flashMessages messages.error}}}
+                    </div>
+				{{/if}}
+            </div>
+		{{/if}}
+        <!-- The content block should contain the body of your template's content-->
+		{{{body}}}
+        <!-- main article content     -->
+    </div>
+
+</section>
+<!---------------------------------
+------------//Main Content------ -->
+
+
+<!---------------------------------
+--------------Footer------------ -->
+<footer id="footer" class="footer">
+    <!-- jQuery 1.11.1 is included by default, and required by both Bootstrap-->
+    <!--and the KeystoneJS Content Editor. If you are not targeting IE8,-->
+    <!--you can upgrade to 2.1.1 (also bundled) for better performance.-->
+    <script src='js/lib/jquery/dist/jquery.min.js'></script>
+
+    <!--Customise which Bootstrap javascript files are served by including-->
+    <!--them specifically here, instead of bootstrap-3.2.0.min.js-->
+    <script src='js/lib/bootstrap/bootstrap-3.2.0.min.js'></script>
+
+    <!--Bootstrap material-->
+    <script src="/js/lib/bootstrap-material-design/dist/js/ripples.min.js"></script>
+    <script src="/js/lib/bootstrap-material-design/dist/js/material.min.js"></script>
+
+    <!--The KeystoneJS Content Editor provides support for ks-editable data attributes,-->
+    <!--which generate links to edit content for users who can access Keystone-->
+    <!--if user && user.canAccessKeystone-->
+    <script src='/keystone/js/content/editor.js'></script>
+
+    <!--Add scripts that are globally required by your site here.-->
+    <script src='js/lib/angular/angular.js'></script>
+    <script src='js/lib/angular-sanitize/angular-sanitize.js'></script>
+    <script src='js/lib/angular-route/angular-route.js'></script>
+    <script src='js/lib/angular-aria/angular-aria.js'></script>
+    <script src='js/lib/angular-animate/angular-animate.js'></script>
+    <script src='js/lib/angular-resource/angular-resource.js'></script>
+    <script src='js/index.js'></script>
+    <script src='js/app/services.js'></script>
+    <script src='js/app/blog/blog.js'></script>
+    <script src='js/app/post/post.js'></script>
+    <script src='js/app/gallery/gallery.js'></script>
+    <script src='js/app/contact/contact.js'></script>
+    <script src='js/app/main.js'></script>
+    <script type='text/javascript'>
+    	$(function() {$.material.init();});
+	</script>
+</footer>
+<!---------------------------------
+--------------//Footer----------- -->
+
+</body>
+</html>
