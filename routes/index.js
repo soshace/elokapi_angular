@@ -30,9 +30,7 @@ keystone.pre('render', middleware.flashMessages);
 // Import Route Controllers
 var routes = {
 	views: importRoutes('./views'),
-	api: importRoutes('./api'),
-	ang_mat: importRoutes('./ang_mat'),
-	ang_bootm: importRoutes('./ang_bootm')
+	api: importRoutes('./api')
 };
 
 // Setup Route Bindings
@@ -80,10 +78,10 @@ exports = module.exports = function(app) {
 	//app.get('/ang-mat/contact', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.contact);
 
 	// App Routes for Angular Bootstrap Material Project
-	app.get('/', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.app);
-	app.get('/blog', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.blog);
-	app.get('/post', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.post);
-	app.get('/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.gallery);
-	app.get('/contact', [keystone.middleware.api, keystone.middleware.cors], routes.ang_bootm.contact);
+	app.get('/', [keystone.middleware.api, keystone.middleware.cors], routes.views.app);
+	app.get('/blog', [keystone.middleware.api, keystone.middleware.cors], routes.views.blog);
+	app.get('/post', [keystone.middleware.api, keystone.middleware.cors], routes.views.post);
+	//app.get('/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.views.gallery);
+	//app.get('/contact', [keystone.middleware.api, keystone.middleware.cors], routes.views.contact);
 	
 };

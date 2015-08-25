@@ -106,11 +106,11 @@ module.exports = function(grunt) {
 		      }
 		    },
 		    files: {
-		      "mobile/www/index.html": ["templates/views/ang_bootm/app.jade"],
-		      "mobile/www/ang_bootm/blog.html": ["templates/views/ang_bootm/blog.jade"],
-		      "mobile/www/ang_bootm/contact.html": ["templates/views/ang_bootm/contact.jade"],
-		      "mobile/www/ang_bootm/gallery.html": ["templates/views/ang_bootm/gallery.jade"],
-		      "mobile/www/ang_bootm/post.html": ["templates/views/ang_bootm/post.jade"],
+		      "mobile/www/index.html": ["templates/views/app/app.jade"],
+		      "mobile/www/blog.html": ["templates/views/app/blog.jade"],
+		      "mobile/www/app/contact.html": ["templates/views/app/contact.jade"],
+		      "mobile/www/app/gallery.html": ["templates/views/app/gallery.jade"],
+		      "mobile/www/app/post.html": ["templates/views/app/post.jade"]
 		    }
 		  }
 		},
@@ -118,11 +118,11 @@ module.exports = function(grunt) {
 		copy: {
 			mobicopy: {
 				files: [
-					{expand: true, cwd: 'public/js/ang_bootm/', src: ['**'], dest: 'mobile/www/js/ang_bootm/'},
+					{expand: true, cwd: 'public/js/app/', src: ['**'], dest: 'mobile/www/js/app/'},
 					{expand: true, cwd: 'public/js/lib/', src: ['**'], dest: 'mobile/www/js/lib/'},
 					{expand: true, cwd: 'public/styles/', src: ['**'], dest: 'mobile/www/styles/'},
 					{expand: true, cwd: 'public/fonts/', src: ['**'], dest: 'mobile/www/fonts/'},
-					{expand: true, cwd: 'public/images/', src: ['**'], dest: 'mobile/www/images/'},
+					{expand: true, cwd: 'public/images/', src: ['**'], dest: 'mobile/www/images/'}
 				]
 			}
 		},
@@ -130,7 +130,7 @@ module.exports = function(grunt) {
 		clean: {
 			mobiclean: [
 				'mobile/www/index.html',
-				'mobile/www/js/ang_bootm',
+				'mobile/www/js/app',
 				'mobile/www/js/lib',
 				'mobile/www/styles',
 				'mobile/www/fonts',
