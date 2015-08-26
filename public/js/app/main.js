@@ -14,12 +14,4 @@ angular.module('mainApp', [
 			enabled: true,
 			requireBase: false
 		});
-	}])
-	.controller('MainCtrl', ['$scope', '$location', function($scope, $location) {
-		$scope.curr_title = tabs[0].title;
-
-		$scope.go = function(tab, path) {
-			$scope.curr_title = tab.title;
-			$location.path(path);
-		};
 	}]);

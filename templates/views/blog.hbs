@@ -20,7 +20,7 @@
         <div class="columns twelve">
 
             <article class="card card-split color-divertido" ng-repeat="post in blog.posts">
-                <a href="#" ng-click="go('/post/'+post.slug)">
+                <a href="/post/{[{post.slug}]}">
                     <div class="split-image"
                          style="background-image:url({[{post.image.url}]});">
                     </div>
