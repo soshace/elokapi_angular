@@ -3,13 +3,13 @@
 angular.module('mainApp.blog', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/blog/:key', {
+  $routeProvider.when('/category/:key', {
     templateUrl: '/views/blog' + template_ext,
     controller: 'HomeCtrl',
     reloadOnSearch: false
   })
 
-  .when('/blog', {
+  .when('/', {
     templateUrl: '/views/blog' + template_ext,
     controller: 'HomeCtrl',
     reloadOnSearch: false
