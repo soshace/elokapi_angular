@@ -5,7 +5,8 @@ angular.module('mainApp.post', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/post/:slug', {
     templateUrl: '/views/post' + template_ext,
-    controller: 'PostCtrl'
+    controller: 'PostCtrl',
+	controllerAs: 'postctrl'
   });
 }])
 
