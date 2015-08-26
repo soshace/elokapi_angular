@@ -79,6 +79,7 @@ exports = module.exports = function(app) {
 
 	// App Routes for Angular Bootstrap Material Project
 	app.get('/', [keystone.middleware.api, keystone.middleware.cors], routes.views.blog);
+	app.get('/post/', [keystone.middleware.api, keystone.middleware.cors], routes.views.post);
 	app.get('/post/:post', [keystone.middleware.api, keystone.middleware.cors], routes.views.post);
 	//app.get('/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.views.gallery);
 	//app.get('/contact', [keystone.middleware.api, keystone.middleware.cors], routes.views.contact);

@@ -4,7 +4,7 @@ angular.module('mainApp.gallery', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/gallery', {
-    templateUrl: 'gallery' + template_ext,
+    templateUrl: '/gallery' + template_ext,
     controller: 'GalleryCtrl'
   });
 }])

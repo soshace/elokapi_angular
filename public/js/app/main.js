@@ -14,4 +14,5 @@ angular.module('mainApp', [
 			enabled: true,
 			requireBase: false
 		});
+		$routeProvider.otherwise({redirectTo: '/blog'});
 	}]);
