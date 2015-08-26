@@ -6,26 +6,16 @@ angular.module('mainApp', [
 	'ngSanitize',
 	'mainApp.blog',
 	'mainApp.post',
-	'mainApp.gallery',
-	'mainApp.contact',
 	'postServices'
 ]).
-	config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+	config(['$routeProvider', '$locationProvider', '$interpolateProvider', function($routeProvider, $locationProvider, $interpolateProvider) {
+		$interpolateProvider.startSymbol('{[{').endSymbol('}]}');
 		$locationProvider.html5Mode({
 			enabled: true,
 			requireBase: false
 		});
-		$routeProvider.otherwise({redirectTo: '/blog'});
 	}])
 	.controller('MainCtrl', ['$scope', '$location', function($scope, $location) {
-		var tabs = [
-			{title: 'Blog', path: 'blog', idx: 0},
-			{title: 'Gallery', path: 'gallery', idx: 1},
-			{title: 'Contact', path: 'contact', idx: 2}
-		];
-
-		$scope.tabs = tabs;
-
 		$scope.curr_title = tabs[0].title;
 
 		$scope.go = function(tab, path) {

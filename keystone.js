@@ -10,8 +10,8 @@ var keystone = require('keystone'),
 // See http://keystonejs.com/guide/config for available options
 // and documentation.
 keystone.init({
-	'name': 'Keystone Angular Skeleton',
-	'brand': 'Keystone Angular Skeleton',
+	'name': 'Elokapi',
+	'brand': 'Elokapi',
 	'less': 'public',
 	'static': 'public',
 	'favicon': 'public/favicon.ico',
@@ -55,8 +55,6 @@ keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
 	'posts': ['posts', 'post-categories'],
-	'galleries': 'galleries',
-	'enquiries': 'enquiries',
 	'users': 'users'
 });
 // Start Keystone to connect to your database and initialise the web server
