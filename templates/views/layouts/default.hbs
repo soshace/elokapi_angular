@@ -27,7 +27,7 @@
     <!-- FACEBOOK INITIALIZATION -->
 
 </head>
-<body class="body" id="body">
+<body class="body" id="body" ng-controller="MainCtrl">
 
 <!---------------------------------
 --------------Header------------ -->
@@ -39,44 +39,44 @@
             </div>
             <nav class="nav-collapse">
                 <ul>
-                    <li>
-                        <a href="#">
+                    <li ng-repeat="category in categories">
+                        <a href="/category/{[{category.key}]}">
                             <div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: #C9DE0F;"></div>
-                            <div>OMG</div>
+                            <div>{[{category.name}]}</div>
                         </a>
                     </li>
-                    <li>
-                        <a href="#">
-                            <div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: rgb(229, 0, 67);"></div>
-                            <div>Divertido</div>
-                        </a>
-                    </li>
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: rgb(229, 0, 67);"></div>-->
+                            <!--<div>Divertido</div>-->
+                        <!--</a>-->
+                    <!--</li>-->
 
-                    <li>
-                        <a href="#">
-                            <div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: rgb(255, 190, 5);"></div>
-                            <div>Animales</div>
-                        </a>
-                    </li>
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: rgb(255, 190, 5);"></div>-->
+                            <!--<div>Animales</div>-->
+                        <!--</a>-->
+                    <!--</li>-->
 
-                    <li>
-                        <a href="#">
-                            <div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: rgb(0, 177, 235);"></div>
-                            <div>Trucos</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: rgb(219, 43, 234);"></div>
-                            <div>Adorable</div>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: rgb(10, 210, 90);"></div>
-                            <div>Videos</div>
-                        </a>
-                    </li>
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: rgb(0, 177, 235);"></div>-->
+                            <!--<div>Trucos</div>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: rgb(219, 43, 234);"></div>-->
+                            <!--<div>Adorable</div>-->
+                        <!--</a>-->
+                    <!--</li>-->
+                    <!--<li>-->
+                        <!--<a href="#">-->
+                            <!--<div class="nav-indicator" style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: rgb(10, 210, 90);"></div>-->
+                            <!--<div>Videos</div>-->
+                        <!--</a>-->
+                    <!--</li>-->
                 </ul>
                 <div class="like-us-button">
                     <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fcircoviral&amp;width=147&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21&amp;appId=674350519339283" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:147px; height:21px;vertical-align:middle;" allowTransparency="true"></iframe>
