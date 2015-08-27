@@ -29,5 +29,4 @@ function PostCtrl($routeParams, $location, $scope, Post, PostsRecent, PostUtils)
   function ErrorFn(error) {
     console.error(error);
   }
-
 }
