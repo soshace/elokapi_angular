@@ -57,17 +57,16 @@
 				<!-- Popular-cards -->
 				<div class="very-popular-cards">
 					<article class="card card-split color-divertido" ng-repeat="p in recent_posts">
-						<a href="#">
+						<a href="/post/{[{p.slug}]}">
 							<div class="split-image"
 								 style="background-image:url({[{p.image.url}]});">
-
 							</div>
 							<div class="header-info clearfix">
 								<h1>{[{p.title}]}</h1>
 							</div>
 							<div class="card-meta-data clearfix">
 								<span class="visitas">322 Visitas</span>
-								<time class="time-ago">2 hours ago</time>
+								<time class="time-ago">{[{p.timeAgo}]}</time>
 							</div>
 						</a>
 
