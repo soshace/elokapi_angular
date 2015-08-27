@@ -167,7 +167,7 @@ module.exports = function(grunt) {
 		concat: {
 			production: {
 				src: [
-					'/js/lib/jquery/dist/jquery.js',
+					'public/js/lib/jquery/dist/jquery.js',
 					'public/js/lib/angular/angular.js',
 					'public/js/lib/angular-sanitize/angular-sanitize.js',
 					'public/js/lib/angular-route/angular-route.js',
