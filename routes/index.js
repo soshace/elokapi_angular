@@ -36,53 +36,19 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function(app) {
 	
-	// Views
-	//app.get('/', routes.views.index);
-	//app.get('/blog/:category?', routes.views.blog);
-	//app.get('/blog/post/:post', routes.views.post);
-	//app.get('/gallery', routes.views.gallery);
-	//app.all('/contact', routes.views.contact);
-	
-	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
-	// app.get('/protected', middleware.requireUser, routes.views.protected);
-
-	// app.all('/api*', keystone.initCORS);
-
 	app.get('/api/post/list', [keystone.middleware.api, keystone.middleware.cors], routes.api.posts.list);
 	app.all('/api/post/create', [keystone.middleware.api, keystone.middleware.cors], routes.api.posts.create);
 	app.get('/api/post/:slug', [keystone.middleware.api, keystone.middleware.cors], routes.api.posts.get);
 	app.all('/api/post/:id/update', [keystone.middleware.api, keystone.middleware.cors], routes.api.posts.update);
 	app.get('/api/post/:id/remove', [keystone.middleware.api, keystone.middleware.cors], routes.api.posts.remove);
-
 	app.get('/api/post-category/list', [keystone.middleware.api, keystone.middleware.cors], routes.api.post_categories.list);
 	app.get('/api/post-category/:key', [keystone.middleware.api, keystone.middleware.cors], routes.api.post_categories.get);
-
 	app.get('/api/post-by-category/:key', [keystone.middleware.api, keystone.middleware.cors], routes.api.post_by_category.list);
 	app.get('/api/post-by-category-recent/:key', [keystone.middleware.api, keystone.middleware.cors], routes.api.post_by_category.recent);
 
-	app.get('/api/gallery/list', [keystone.middleware.api, keystone.middleware.cors], routes.api.galleries.list);
-	app.get('/api/gallery/:key', [keystone.middleware.api, keystone.middleware.cors], routes.api.galleries.get);
-
-	app.get('/api/enquiry/list', [keystone.middleware.api, keystone.middleware.cors], routes.api.enquiries.list);
-	app.all('/api/enquiry/create', [keystone.middleware.api, keystone.middleware.cors], routes.api.enquiries.create);
-	app.all('/api/enquiry/:id/update', [keystone.middleware.api, keystone.middleware.cors], routes.api.enquiries.update);
-	app.get('/api/enquiry/:id/remove', [keystone.middleware.api, keystone.middleware.cors], routes.api.enquiries.remove);
-
-	app.get('/api/enquiry_type/list', [keystone.middleware.api, keystone.middleware.cors], routes.api.enquiry_types.list);
-	app.get('/api/enquiry_type/:value', [keystone.middleware.api, keystone.middleware.cors], routes.api.enquiry_types.get);
-	
-	// App Routes for Angular Material Project
-	//app.get('/ang-mat', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.app);
-	//app.get('/ang-mat/blog', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.blog);
-	//app.get('/ang-mat/post', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.post);
-	//app.get('/ang-mat/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.gallery);
-	//app.get('/ang-mat/contact', [keystone.middleware.api, keystone.middleware.cors], routes.ang_mat.contact);
 
 	// App Routes for Angular Bootstrap Material Project
 	app.get('/', [keystone.middleware.api, keystone.middleware.cors], routes.views.blog);
 	app.get('/post/', [keystone.middleware.api, keystone.middleware.cors], routes.views.post);
 	app.get('/post/:post', [keystone.middleware.api, keystone.middleware.cors], routes.views.post);
-	//app.get('/gallery', [keystone.middleware.api, keystone.middleware.cors], routes.views.gallery);
-	//app.get('/contact', [keystone.middleware.api, keystone.middleware.cors], routes.views.contact);
-	
 };

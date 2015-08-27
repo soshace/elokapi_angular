@@ -43,7 +43,7 @@
                     <li ng-repeat="category in categories">
                         <a href="/category/{[{category.key}]}">
                             <div class="nav-indicator"
-                                 style="transition: transform 300ms; transform: translateX(0px) translateY(0px); background-color: #C9DE0F;"></div>
+                                 style="background-color:{[{category.color}]}"></div>
                             <div>{[{category.name}]}</div>
                         </a>
                     </li>
