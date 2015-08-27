@@ -45,6 +45,7 @@ exports = module.exports = function(app) {
 	app.get('/api/post-category/:key', [keystone.middleware.api, keystone.middleware.cors], routes.api.post_categories.get);
 	app.get('/api/post-by-category/:key', [keystone.middleware.api, keystone.middleware.cors], routes.api.post_by_category.list);
 	app.get('/api/post-by-category-recent/:key', [keystone.middleware.api, keystone.middleware.cors], routes.api.post_by_category.recent);
+	app.get('/api/posts', [keystone.middleware.api, keystone.middleware.cors], routes.api.posts.all);
 
 
 	// App Routes for Angular Bootstrap Material Project

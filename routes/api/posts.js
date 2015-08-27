@@ -7,7 +7,7 @@ var Post = keystone.list('Post');
  * List Posts
  */
 exports.list = function(req, res) {
-  Post.model.find().populate('author categories').exec(function(err, items) {
+  Post.model.find().populate('categories').exec(function(err, items) {
     
     if (err) return res.apiError('database error', err);
     
@@ -24,10 +24,9 @@ exports.list = function(req, res) {
  * Get Post by ID
  */
 exports.get = function(req, res) {
-  Post.model.findOne().populate('author categories').where('slug', req.params.slug).exec(function(err, item) {
+  Post.model.findOne().populate('categories').where('slug', req.params.slug).exec(function(err, item) {
     item.visits += 1;
     item.save();
-    console.log(item.visits);
     if (err) return res.apiError('database error', err);
     if (!item) return res.apiError('not found');
     
@@ -99,5 +98,32 @@ exports.remove = function(req, res) {
       });
     });
     
+  });
+};
+
+/**
+ * List Posts
+ */
+exports.all = function(req, res) {
+  var skip = req.query.skip || 0,
+    limit = req.query.limit || 0;
+
+
+  Post.model
+    .find()
+    .populate('categories')
+    .skip(skip)
+    .limit(limit)
+    .exec(function(err, items) {
+
+    if (err) return res.apiError('database error', err);
+
+    // res.apiResponse({
+    //   posts: items
+    // });
+    console.log(req.query);
+
+    res.apiResponse(items);
+
   });
 };
