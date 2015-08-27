@@ -18,8 +18,6 @@ keystone.init({
 	'views': 'templates/views',
 	'view engine': 'hbs',
 	'custom engine': handlebars.create({
-		layoutsDir: 'templates/views/layouts',
-		defaultLayout: 'default',
 		extname: '.hbs'
 	}).engine,
 	'auto update': true,

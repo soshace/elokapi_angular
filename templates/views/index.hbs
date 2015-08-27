@@ -27,7 +27,6 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
     <!-- FACEBOOK INITIALIZATION -->
-
 </head>
 <body class="body" id="body">
 
@@ -78,16 +77,20 @@
 <!---------------------------------
 --------------Footer------------ -->
 <footer id="footer" class="footer">
-    <!--Add scripts that are globally required by your site here.-->
-    <script src='/js/lib/angular/angular.js'></script>
-    <script src='/js/lib/angular-sanitize/angular-sanitize.js'></script>
-    <script src='/js/lib/angular-route/angular-route.js'></script>
-    <script src='/js/lib/angular-resource/angular-resource.js'></script>
-    <script src='/js/index.js'></script>
-    <script src='/js/app/services.js'></script>
-    <script src='/js/app/blog/blog.js'></script>
-    <script src='/js/app/post/post.js'></script>
-    <script src='/js/app/main.js'></script>
+	{{#if production}}
+        <script src='/js/script.js'></script>
+	{{else}}
+        <!--Add scripts that are globally required by your site here.-->
+        <script src='/js/lib/angular/angular.js'></script>
+        <script src='/js/lib/angular-sanitize/angular-sanitize.js'></script>
+        <script src='/js/lib/angular-route/angular-route.js'></script>
+        <script src='/js/lib/angular-resource/angular-resource.js'></script>
+        <script src='/js/index.js'></script>
+        <script src='/js/app/services.js'></script>
+        <script src='/js/app/blog/blog.js'></script>
+        <script src='/js/app/post/post.js'></script>
+        <script src='/js/app/main.js'></script>
+	{{/if}}
 </footer>
 <!---------------------------------
 --------------//Footer----------- -->
