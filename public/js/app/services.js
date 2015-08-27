@@ -39,7 +39,11 @@ function PostUtils() {
 
   function setTimeAgo(posts) {
     var postTime;
-
+    if (!(posts instanceof  Array)) {
+      postTime = new Date(posts.publishedDate);
+      posts.timeAgo = getMessageByHoursDiff(postTime);
+      return;
+    }
     posts.forEach(function (post, index, arr) {
       postTime = new Date(post.publishedDate);
       post.timeAgo = getMessageByHoursDiff(postTime);
