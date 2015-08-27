@@ -11,9 +11,7 @@ angular.module('mainApp.post', ['ngRoute'])
 }])
 
 .controller('PostCtrl', ['$routeParams', '$location', '$scope', 'Post', function($routeParams, $location, $scope, Post) {
-  var self = this;
-
   Post.get({slug: $routeParams.slug}, function(post) {
-    self.post = post;
+    $scope.post = post;
   });
 }]);

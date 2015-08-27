@@ -16,13 +16,5 @@ angular.module('mainApp', [
 		});
 	}])
 	.controller('MainCtrl', ['$scope', '$location', 'PostCategory', function($scope, $location, PostCategory) {
-		$scope.categories = [];
-
-		var curr_cat = {key:'list', name:'All'};
-
-		$scope.curr_cat = curr_cat;
-		
-		$scope.categories = PostCategory.query(function(){
-			$scope.categories.unshift(curr_cat);
-		});
+		$scope.categories = PostCategory.query();
 	}]);

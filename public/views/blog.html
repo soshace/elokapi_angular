@@ -1,4 +1,4 @@
-<div ng-controller="HomeCtrl as blog">
+<div>
 	<div class="columns twelve">
 		<div class="top-card clearfix">
 			<article>
@@ -19,7 +19,7 @@
 	<div class="main-article-content clearfix">
 		<div class="columns twelve">
 
-			<article class="card card-split color-divertido" ng-repeat="post in blog.posts">
+			<article class="card card-split color-divertido" ng-repeat="post in posts">
 				<a href="/post/{[{post.slug}]}">
 					<div class="split-image"
 						 style="background-image:url({[{post.image.url}]});">
