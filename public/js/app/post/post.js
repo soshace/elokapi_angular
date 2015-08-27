@@ -9,12 +9,12 @@ angular.module('mainApp.post', ['ngRoute'])
     });
   }])
 
-  .controller('PostCtrl', ['$routeParams', '$location', '$scope', 'Post', 'PostByCategory', function ($routeParams, $location, $scope, Post, PostByCategory) {
+  .controller('PostCtrl', ['$routeParams', '$location', '$scope', 'Post', 'PostsRecent', function ($routeParams, $location, $scope, Post, PostsRecent) {
     function activate() {
       Post.get({slug: $routeParams.slug}, function (post) {
         $scope.post = post;
-        
-        PostByCategory.query({key: post.categories[0].key}, function (recent_posts) {
+
+        PostsRecent.query({key: post.categories[0].key}, function (recent_posts) {
           $scope.recent_posts = recent_posts;
         }, ErrorFn);
       });
