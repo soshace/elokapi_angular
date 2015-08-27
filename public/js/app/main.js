@@ -8,8 +8,9 @@ angular.module('mainApp', [
 	'mainApp.post',
 	'postServices'
 ]).
-	config(['$routeProvider', '$locationProvider', '$interpolateProvider', function($routeProvider, $locationProvider, $interpolateProvider) {
+	config(['$routeProvider', '$locationProvider', '$interpolateProvider', '$compileProvider', function($routeProvider, $locationProvider, $interpolateProvider, $compileProvider) {
 		$interpolateProvider.startSymbol('{[{').endSymbol('}]}');
+		$compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension|whatsapp):/);
 		$locationProvider.html5Mode({
 			enabled: true,
 			requireBase: false
