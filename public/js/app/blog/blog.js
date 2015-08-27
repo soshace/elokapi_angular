@@ -16,12 +16,16 @@ angular.module('mainApp.blog', ['ngRoute'])
 			});
 	}])
 
-	.controller('HomeCtrl', ['Post', 'PostByCategory', '$routeParams', '$scope', function(Post, PostByCategory, $routeParams, $scope) {
+	.controller('HomeCtrl', ['Post', 'PostByCategory', '$routeParams', '$scope', 'PostUtils', function(Post, PostByCategory, $routeParams, $scope, PostUtils) {
 		$scope.posts = [];
-
 		if ($routeParams.key != null)
-			$scope.posts = PostByCategory.query({key: $routeParams.key});
+			PostByCategory.query({key: $routeParams.key}, PostsSuccessFn);
 		else
-			$scope.posts = Post.query();
+			Post.query(PostsSuccessFn);
+
+		function PostsSuccessFn(data) {
+			$scope.posts = data;
+			PostUtils.setTimeAgo($scope.posts);
+		}
 	}]);
 
