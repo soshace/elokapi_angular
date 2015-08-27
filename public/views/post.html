@@ -7,14 +7,14 @@
 				<div class="content-wrapper clearfix">
 					<div class="post-meta-container clearfix">
 						<span class="category color-omg-text">NEWS</span>
-						<span class="time-span">2 hours ago</span>
+						<span class="time-span">{[{post.timeAgo}]}</span>
 					</div>
 					<h1>{[{post.title}]}</h1>
 
 					<div class="clearfix sharebar">
                                     <span class="total-visitas">
-                                        <span class="visitors">300</span>
-                                        <span class="vissitas">Visitas</span>
+                                        <span class="visitors">{[{post.visits}]}</span>
+                                        <span class="vissitas">Visita<span ng-if="post.visits>1">s</span></span>
                                     </span>
 						<ul>
 							<li>
@@ -65,7 +65,7 @@
 								<h1>{[{p.title}]}</h1>
 							</div>
 							<div class="card-meta-data clearfix">
-								<span class="visitas">322 Visitas</span>
+								<span class="visitas">{[{p.visits}]} Visita<span ng-if="p.visits>1">s</span></span>
 								<time class="time-ago">{[{p.timeAgo}]}</time>
 							</div>
 						</a>

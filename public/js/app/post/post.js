@@ -17,8 +17,8 @@ function PostCtrl($routeParams, $location, $scope, Post, PostsRecent, PostUtils)
   
   function activate() {
     Post.get({slug: $routeParams.slug}, function (post) {
+      PostUtils.setTimeAgo(post);
       $scope.post = post;
-
       PostsRecent.query({key: post.categories[0].key}, function (recent_posts) {
         PostUtils.setTimeAgo(recent_posts);
         $scope.recent_posts = recent_posts;

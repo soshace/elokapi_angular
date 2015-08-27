@@ -8,7 +8,8 @@ var keystone = require('keystone'),
 
 var Post = new keystone.List('Post', {
 	map: { name: 'title' },
-	autokey: { path: 'slug', from: 'title', unique: true }
+	autokey: { path: 'slug', from: 'title', unique: true },
+	defaultSort: '-publishedDate'
 });
 
 Post.add({
@@ -21,7 +22,8 @@ Post.add({
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
 	},
-	categories: { type: Types.Relationship, ref: 'PostCategory', many: true }
+	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
+	visits: {type: Types.Number, noedit: true, default: 0}
 });
 
 Post.schema.virtual('content.full').get(function() {
