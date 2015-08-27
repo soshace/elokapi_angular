@@ -9,7 +9,7 @@
 						<span class="category color-omg-text">NEWS</span>
 						<span class="time-span">2 hours ago</span>
 					</div>
-					<h1>{[{postctrl.post.title}]}</h1>
+					<h1>{[{post.title}]}</h1>
 
 					<div class="clearfix sharebar">
                                     <span class="total-visitas">
@@ -24,9 +24,8 @@
 								<a href="#" class="share-button whatsapp"></a>
 							</li>
 						</ul>
-
 					</div>
-					<div ng-bind-html="postctrl.post.content.extended"></div>
+					<div ng-bind-html="post.content.extended"></div>
 					<div class="clearfix sharebar">
 						<ul>
 							<li>
@@ -54,20 +53,17 @@
 				<div class="clearfix lead-links recent-in-cat">
 					<a href="#" class="recent-in-cat btn-logger">Recent In Category</a>
 				</div>
-
-
+				
 				<!-- Popular-cards -->
 				<div class="very-popular-cards">
-					<article class="card card-split color-divertido">
-
+					<article class="card card-split color-divertido" ng-repeat="p in recent_posts">
 						<a href="#">
 							<div class="split-image"
-								 style="background-image:url(http://www.hellou.co.uk/wp-content/uploads/2015/08/icon4-150x65.jpg);">
+								 style="background-image:url({[{p.image.url}]});">
 
 							</div>
-
 							<div class="header-info clearfix">
-								<h1>Just wanna say hi with this heading tag. Hi</h1>
+								<h1>{[{p.title}]}</h1>
 							</div>
 							<div class="card-meta-data clearfix">
 								<span class="visitas">322 Visitas</span>
@@ -76,101 +72,7 @@
 						</a>
 
 					</article>
-
-					<article class="card card-split color-divertido">
-
-						<a href="#">
-							<div class="split-image"
-								 style="background-image:url(http://www.hellou.co.uk/wp-content/uploads/2015/08/icon4-150x65.jpg);">
-
-							</div>
-
-							<div class="header-info clearfix">
-								<h1>Just wanna say hi with this heading tag. Hi</h1>
-							</div>
-							<div class="card-meta-data clearfix">
-								<span class="visitas">322 Visitas</span>
-								<time class="time-ago">2 hours ago</time>
-							</div>
-						</a>
-
-					</article>
-
-					<article class="card card-split color-divertido">
-
-						<a href="#">
-							<div class="split-image"
-								 style="background-image:url(http://www.hellou.co.uk/wp-content/uploads/2015/08/icon4-150x65.jpg);">
-
-							</div>
-
-							<div class="header-info clearfix">
-								<h1>Just wanna say hi with this heading tag. Hi</h1>
-							</div>
-							<div class="card-meta-data clearfix">
-								<span class="visitas">322 Visitas</span>
-								<time class="time-ago">2 hours ago</time>
-							</div>
-						</a>
-
-					</article>
-
-					<article class="card card-split color-divertido">
-
-						<a href="#">
-							<div class="split-image"
-								 style="background-image:url(http://www.hellou.co.uk/wp-content/uploads/2015/08/icon4-150x65.jpg);">
-
-							</div>
-
-							<div class="header-info clearfix">
-								<h1>Just wanna say hi with this heading tag. Hi</h1>
-							</div>
-							<div class="card-meta-data clearfix">
-								<span class="visitas">322 Visitas</span>
-								<time class="time-ago">2 hours ago</time>
-							</div>
-						</a>
-
-					</article>
-
-					<article class="card card-split color-divertido">
-
-						<a href="#">
-							<div class="split-image"
-								 style="background-image:url(http://www.hellou.co.uk/wp-content/uploads/2015/08/icon4-150x65.jpg);">
-
-							</div>
-
-							<div class="header-info clearfix">
-								<h1>Just wanna say hi with this heading tag. Hi</h1>
-							</div>
-							<div class="card-meta-data clearfix">
-								<span class="visitas">322 Visitas</span>
-								<time class="time-ago">2 hours ago</time>
-							</div>
-						</a>
-
-					</article>
-
-					<article class="card card-split color-divertido">
-
-						<a href="#">
-							<div class="split-image"
-								 style="background-image:url(http://www.hellou.co.uk/wp-content/uploads/2015/08/icon4-150x65.jpg);">
-
-							</div>
-
-							<div class="header-info clearfix">
-								<h1>Just wanna say hi with this heading tag. Hi</h1>
-							</div>
-							<div class="card-meta-data clearfix">
-								<span class="visitas">322 Visitas</span>
-								<time class="time-ago">2 hours ago</time>
-							</div>
-						</a>
-
-					</article>
+					
 				</div>
 				<!-- /Popular-cards -->
 
