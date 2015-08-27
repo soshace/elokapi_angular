@@ -22,3 +22,10 @@ postServices.factory('PostByCategory', ['$resource',
       query: {method:'GET', isArray:true}
     });
   }]);
+
+postServices.factory('PostsRecent', ['$resource',
+  function($resource){
+    return $resource(host + 'api/post-by-category-recent/:key', {}, {
+      query: {method:'GET', isArray:true}
+    });
+  }]);
