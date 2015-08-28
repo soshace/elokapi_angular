@@ -30,7 +30,16 @@ postServices.factory('PostsRecent', ['$resource',
     });
   }]);
 
+postServices.factory('Posts', Posts);
+Posts.$inject = ['$resource'];
+
 postServices.factory('PostUtils', PostUtils);
+
+function Posts($resource){
+  return $resource(host + 'api/posts', {}, {
+    query: {method:'GET', isArray:true}
+  });
+}
 
 function PostUtils() {
   return {

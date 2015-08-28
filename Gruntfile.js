@@ -169,6 +169,7 @@ module.exports = function(grunt) {
 				src: [
 					'public/js/lib/jquery/dist/jquery.js',
 					'public/js/lib/angular/angular.js',
+					'public/js/lib/angular/ng-infinite-scroll.min.js',
 					'public/js/lib/angular-sanitize/angular-sanitize.js',
 					'public/js/lib/angular-route/angular-route.js',
 					'public/js/lib/angular-resource/angular-resource.js',
