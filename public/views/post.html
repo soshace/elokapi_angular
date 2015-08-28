@@ -1,9 +1,9 @@
 <div>
 	<div class="columns twelve">
-		<div class="color-omg main-article-container clearfix">
+		<div class="main-article-container clearfix">
 
 			<!-- Main Article Content -->
-			<article class="article-content">
+			<article class="article-content" style="border-color:{[{post.categories[0].color}]}">
 				<div class="content-wrapper clearfix">
 					<div class="post-meta-container clearfix">
 						<span class="category color-omg-text">NEWS</span>
@@ -55,17 +55,17 @@
 				
 				<!-- Popular-cards -->
 				<div class="very-popular-cards">
-					<article class="card card-split color-divertido" ng-repeat="recent_post in recent_posts">
-						<a href="/post/{[{recent_post.slug}]}">
+					<article class="card card-split" style="border-color: {[{recentPost.categories[0].color}]}" ng-repeat="recentPost in recentPosts">
+						<a href="/post/{[{recentPost.slug}]}">
 							<div class="split-image"
-								 style="background-image:url({[{recent_post.image.url}]});">
+								 style="background-image:url({[{recentPost.image.url}]});">
 							</div>
 							<div class="header-info clearfix">
-								<h1>{[{p.title}]}</h1>
+								<h1>{[{recentPost.title}]}</h1>
 							</div>
 							<div class="card-meta-data clearfix">
-								<span class="visitas">{[{recent_post.visits}]} Visita<span ng-if="recent_post.visits>1">s</span></span>
-								<time class="time-ago">{[{recent_post.timeAgo}]}</time>
+								<span class="visitas">{[{recentPost.visits}]} Visita<span ng-if="recentPost.visits>1">s</span></span>
+								<time class="time-ago">{[{recentPost.timeAgo}]}</time>
 							</div>
 						</a>
 

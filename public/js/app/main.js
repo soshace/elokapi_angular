@@ -17,6 +17,9 @@ angular.module('mainApp', [
 			requireBase: false
 		});
 	}])
-	.controller('MainCtrl', ['$scope', '$location', 'PostCategory', function($scope, $location, PostCategory) {
-		$scope.categories = PostCategory.query();
+	.controller('MainCtrl', ['$scope', '$rootScope', '$location', 'PostCategory', function($scope, $rootScope, $location, PostCategory) {
+		var categories = PostCategory.query();
+		
+		$scope.categories = categories;
+		$rootScope.categories = categories;
 	}]);

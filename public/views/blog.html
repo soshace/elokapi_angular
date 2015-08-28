@@ -19,7 +19,7 @@
     <div class="main-article-content clearfix" infinite-scroll='loadMore()'>
         <div class="columns twelve">
 
-            <article class="card card-split color-divertido" ng-repeat="post in posts">
+            <article class="card card-split" style="border-color: {[{post.categories[0].color}]}" ng-repeat="post in posts">
                 <a href="/post/{[{post.slug}]}">
                     <div class="split-image"
                          style="background-image:url({[{post.image.url}]});">
