@@ -1,7 +1,7 @@
 'use strict';
 
 angular
-	.module('mainApp.post', ['ngRoute'])
+	.module('mainApp.post', ['ngRoute', 'mainApp.directives'])
 	.config(['$routeProvider', function($routeProvider) {
 		$routeProvider.when('/post/:slug', {
 			templateUrl: '/views/post' + template_ext,
@@ -21,10 +21,11 @@ function PostCtrl($routeParams, $rootScope, $scope, Post, PostsRecent, PostUtils
 		PostsRecent.query({key: post.categories[0].key}, function(recentPosts) {
 			PostUtils.setTimeAgo(recentPosts);
 			$scope.recentPosts = recentPosts;
+			PostUtils.addAdsense($('article'));
 		}, ErrorFn);
 		
 	}, ErrorFn);
-
+	
 	function ErrorFn(error) {
 		console.error(error);
 	}

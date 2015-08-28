@@ -3,30 +3,30 @@
 var postServices = angular.module('postServices', ['ngResource']);
 
 postServices.factory('Post', ['$resource',
-  function($resource){
+  function ($resource) {
     return $resource(host + 'api/post/:slug', {}, {
-      query: {method:'GET', params:{slug:'list'}, isArray:true}
+      query: {method: 'GET', params: {slug: 'list'}, isArray: true}
     });
   }]);
 
 postServices.factory('PostCategory', ['$resource',
-  function($resource){
+  function ($resource) {
     return $resource(host + 'api/post-category/:key', {}, {
-      query: {method:'GET', params:{key:'list'}, isArray:true}
+      query: {method: 'GET', params: {key: 'list'}, isArray: true}
     });
   }]);
 
 postServices.factory('PostByCategory', ['$resource',
-  function($resource){
+  function ($resource) {
     return $resource(host + 'api/post-by-category/:key', {}, {
-      query: {method:'GET', isArray:true}
+      query: {method: 'GET', isArray: true}
     });
   }]);
 
 postServices.factory('PostsRecent', ['$resource',
-  function($resource){
+  function ($resource) {
     return $resource(host + 'api/post-by-category-recent/:key', {}, {
-      query: {method:'GET', isArray:true}
+      query: {method: 'GET', isArray: true}
     });
   }]);
 
@@ -35,15 +35,16 @@ Posts.$inject = ['$resource'];
 
 postServices.factory('PostUtils', PostUtils);
 
-function Posts($resource){
+function Posts($resource) {
   return $resource(host + 'api/posts', {}, {
-    query: {method:'GET', isArray:true}
+    query: {method: 'GET', isArray: true}
   });
 }
 
 function PostUtils() {
   return {
-    setTimeAgo: setTimeAgo
+    setTimeAgo: setTimeAgo,
+    addAdsense: addAdsense
   };
 
   function setTimeAgo(posts) {
@@ -80,5 +81,19 @@ function PostUtils() {
       res = Math.ceil(hoursDiff / 24) + " days ago";
     }
     return res;
+  }
+
+  function addAdsense($elem) {
+    var $headers = $elem.find('h2, h3, h4, h5, h6'),
+      BreakException = {};
+
+    try {
+      $headers.each(function (index) {
+        if (index === 3) throw BreakException;
+        $(this).after('<div id="ad1" class="adsense_ad">GOOGLE AD HERE</div>');
+      });
+    } catch (e) {
+      if (e !== BreakException) throw e;
+    }
   }
 }

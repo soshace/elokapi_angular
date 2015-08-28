@@ -110,7 +110,7 @@ exports.all = function (req, res) {
   var skip = req.query.skip || 0,
     limit = req.query.limit || 0,
     categoryKey = req.query.categoryKey || "",
-    querySet = Post.model.find().populate('categories')
+    querySet = Post.model.find().populate('categories').sort({publishedDate: 'desc'})
     ;
 
   if (categoryKey) {

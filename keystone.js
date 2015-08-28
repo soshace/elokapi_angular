@@ -23,7 +23,8 @@ keystone.init({
 	'auto update': true,
 	'session': true,
 	'auth': true,
-	'user model': 'User'
+	'user model': 'User',
+	'wysiwyg additional buttons': 'styleselect'
 });
 
 // Load your project's Models
