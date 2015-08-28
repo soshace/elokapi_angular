@@ -174,6 +174,7 @@ module.exports = function(grunt) {
 					'public/js/lib/angular-resource/angular-resource.js',
 					'public/js/index.js',
 					'public/js/app/services.js',
+					'public/js/app/directives.js',
 					'public/js/app/blog/blog.js',
 					'public/js/app/post/post.js',
 					'public/js/app/main.js'

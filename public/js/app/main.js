@@ -6,6 +6,7 @@ angular.module('mainApp', [
 	'ngSanitize',
 	'mainApp.blog',
 	'mainApp.post',
+	'mainApp.directives',
 	'postServices'
 ]).
 	config(['$routeProvider', '$locationProvider', '$interpolateProvider', '$compileProvider', function($routeProvider, $locationProvider, $interpolateProvider, $compileProvider) {
