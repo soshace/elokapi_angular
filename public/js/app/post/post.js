@@ -14,7 +14,7 @@ PostCtrl.$inject = ['$routeParams', '$rootScope', '$scope', 'Post', 'PostsRecent
 
 function PostCtrl($routeParams, $rootScope, $scope, Post, PostsRecent, PostUtils) {
 	Post.get({slug: $routeParams.slug}, function(post) {
-		
+		$rootScope.documentTitle = post.title;
 		PostUtils.setTimeAgo(post);
 		post.watsAppLink = 'whatsapp://' + post.title + ' : ' + location.href;
 		$scope.post = post;

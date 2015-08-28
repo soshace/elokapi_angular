@@ -16,12 +16,11 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
       });
   }])
 
-  .controller('HomeCtrl', ['Post', 'Posts', 'PostByCategory', '$routeParams', '$scope', 'PostUtils', function (Post, Posts, PostByCategory, $routeParams, $scope, PostUtils) {
+  .controller('HomeCtrl', ['Post', 'Posts', 'PostByCategory', '$routeParams', '$scope', 'PostUtils', '$rootScope', function (Post, Posts, PostByCategory, $routeParams, $scope, PostUtils, $rootScope) {
     var skip,
       limit,
       inc,
-      busyLoading = true
-      ;
+      busyLoading = true;
 
     $scope.posts = [];
 
@@ -36,6 +35,7 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
 
     function activate() {
       initInc();
+			setDocumentTitle();
       Posts.query({skip: skip, limit: limit, categoryKey: $routeParams.key}, PostsSuccessFn);
     }
 
@@ -44,6 +44,17 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
       limit = 6;
       inc = 6;
     }
+
+		function setDocumentTitle() {
+			var key = $routeParams.key;
+
+			if (key) {
+				$rootScope.documentTitle = 'Category ' + key;
+				return;
+			}
+
+			$rootScope.documentTitle = 'Elokapi site';
+		}
 
     function LoadMoreSuccessFn(data) {
       data.forEach(function (post) {
