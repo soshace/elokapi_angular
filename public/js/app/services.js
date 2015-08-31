@@ -85,12 +85,13 @@ function PostUtils() {
 
   function addAdsense($elem) {
     var $headers = $elem.find('h2, h3, h4, h5, h6'),
-      BreakException = {};
+      BreakException = {},
+		adSlots = ['2348713285', '3825446483', '5302179685'];
 
     try {
       $headers.each(function (index) {
         if (index === 3) throw BreakException;
-        $(this).after('<div id="ad1" class="adsense_ad">GOOGLE AD HERE</div>');
+        $(this).after('<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><!-- Okapi1 --><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-3833845702235676" data-ad-slot="'+adSlots[index]+'"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script>'); 
       });
     } catch (e) {
       if (e !== BreakException) throw e;
