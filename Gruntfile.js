@@ -168,6 +168,7 @@ module.exports = function(grunt) {
 			production: {
 				src: [
 					'public/js/lib/jquery/dist/jquery.js',
+					'public/js/lib/responsive-nav/responsive-nav.js',
 					'public/js/lib/angular/angular.js',
 					'public/js/lib/ngInfiniteScroll/build/ng-infinite-scroll.js',
 					'public/js/lib/angular-sanitize/angular-sanitize.js',
