@@ -4,7 +4,7 @@
             <article>
                 <div class="content-wrapper">
                     <a href="#">
-                        <img src="http://lorempixel.com/450/238" alt="" width="946" height="500"/>
+                        <img src="/images/dog.png" alt="" width="946" height="500"/>
 
                         <div class="header-info">
                             <h1>This is just a testing header for the head information kept it</h1>
@@ -19,7 +19,7 @@
     <div class="main-article-content clearfix" infinite-scroll='loadMore()'>
         <div class="columns twelve">
 
-            <article class="card card-split" style="border-color: {[{post.categories[0].color}]}" ng-repeat="post in posts">
+            <article class="card card-split" style="border-color: {[{post.categories[0].color}]}" ng-repeat="post in posts" ng-click="openArticle()">
                 <a href="/post/{[{post.slug}]}">
                     <div class="split-image"
                          style="background-image:url({[{post.image.url}]});">
