@@ -26,18 +26,3 @@ angular.module('mainApp.directives', [])
 			}
 		};
 	});
-	//.directive("addbuttons", function($compile){
-	//	return function(scope, element, attrs){
-	//		element.bind("click", function(){
-	//			scope.count++;
-	//			angular.element(document.getElementById('space-for-buttons')).append($compile("<div><button class='btn btn-default' data-alert="+scope.count+">Show alert #"+scope.count+"</button></div>")(scope));
-	//		});
-	//	};
-	//});
-	//.directive('adsense', function () {
-	//	var htmlCode = 'This is spam: <div class="adsense_ad"></div>';
-  //
-	//	return {
-	//		template: 'This is spam: <div class="adsense_ad"></div>'
-	//	};
-	//});
