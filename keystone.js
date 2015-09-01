@@ -24,7 +24,9 @@ keystone.init({
 	'session': true,
 	'auth': true,
 	'user model': 'User',
-	'wysiwyg additional buttons': 'styleselect'
+	'wysiwyg additional buttons': 'styleselect',
+	'wysiwyg images': true,
+	'wysiwyg cloudinary images': true
 });
 
 // Load your project's Models

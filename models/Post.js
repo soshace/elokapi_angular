@@ -23,7 +23,13 @@ Post.add({
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
 	},
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
-	visits: {type: Types.Number, noedit: true, default: 0}
+	visits: {type: Types.Number, noedit: true, default: 0},
+	url: {type: Types.Url, noedit: true}
+});
+
+Post.schema.pre('save', function (next) {
+	this.url = process.env.HOST_NAME + 'post/' + this.slug;
+	next();
 });
 
 Post.schema.virtual('content.full').get(function() {

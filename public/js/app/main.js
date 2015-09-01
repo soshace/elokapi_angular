@@ -22,4 +22,5 @@ angular.module('mainApp', [
 		
 		$scope.categories = categories;
 		$rootScope.categories = categories;
+		
 	}]);
