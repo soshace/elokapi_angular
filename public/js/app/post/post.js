@@ -24,6 +24,7 @@ function PostCtrl($sce, $routeParams, $rootScope, $scope, Post, PostsRecent, Pos
 			PostUtils.setTimeAgo(recentPosts);
 			$scope.recentPosts = recentPosts;
 			PostUtils.addAdsense($('article'));
+			PostUtils.onPostRender();
 		}, ErrorFn);
 
 	}, ErrorFn);

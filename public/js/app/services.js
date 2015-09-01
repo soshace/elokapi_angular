@@ -44,7 +44,8 @@ function Posts($resource) {
 function PostUtils() {
   return {
     setTimeAgo: setTimeAgo,
-    addAdsense: addAdsense
+    addAdsense: addAdsense,
+		onPostRender: onPostRender
   };
 
   function setTimeAgo(posts) {
@@ -98,4 +99,8 @@ function PostUtils() {
       if (e !== BreakException) throw e;
     }
   }
+	
+	function onPostRender() {
+		$('iframe[src^="https://www.youtube.com"]').wrap('<div class="video-container"/>');
+	}
 }
