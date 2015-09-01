@@ -37,7 +37,7 @@ function PostCtrl($sce, $routeParams, $rootScope, $scope, Post, PostsRecent, Pos
 					href: window.location.href,
 					title: post.title,
 					picture: (!!post.image) ? post.image.url : "",
-					caption: "Por el Amor A Los Animales. Únete Para Protegerlos."
+					description: "Por el Amor A Los Animales. Únete Para Protegerlos."
 				});
 		}
 	};
