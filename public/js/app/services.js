@@ -98,8 +98,23 @@ function PostUtils() {
       if (e !== BreakException) throw e;
     }
   }
-	
+
 	function onPostRender() {
+		var MIN_WIDTH = 768,
+			width = (window.innerWidth < MIN_WIDTH) ? 'w_' + Math.round(window.innerWidth / 2) : null,
+			src,
+			tmpArr
+			;
+
 		$('iframe[src^="https://www.youtube.com"]').wrap('<div class="video-container"/>');
+		$.each($('img[data-source]'), function () {
+			tmpArr = $(this).data('source').split('/');
+			if (width) {
+				tmpArr.splice(tmpArr.length - 2, 0, width);
+			}
+			src = tmpArr.join('/');
+
+			$(this).attr('src', src);
+		});
 	}
 }

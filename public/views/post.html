@@ -54,7 +54,7 @@
 				
 				<!-- Popular-cards -->
 				<div class="very-popular-cards">
-					<article class="card card-split" style="border-color: {[{recentPost.categories[0].color}]}" ng-repeat="recentPost in recentPosts">
+					<article class="card card-split" style="border-color: {[{recentPost.categories[0].color}]}" ng-repeat="recentPost in recentPosts" ng-hide="recentPost._id==post._id">
 						<a href="/post/{[{recentPost.slug}]}">
 							<div class="split-image"
 								 style="background-image:url({[{recentPost.image.url}]});">
@@ -74,7 +74,7 @@
 				<!-- /Popular-cards -->
 
 				<div class="clearfix lead-links top-stories">
-					<a href="#" class="top-stories btn-logger">View Top Stories</a>
+					<a href="/" class="top-stories btn-logger">View Top Stories</a>
 				</div>
 
 

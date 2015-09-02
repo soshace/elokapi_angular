@@ -33,15 +33,13 @@ exports.recent = function (req, res) {
     if (!item) return res.apiError('not found');
 
     var category = item;
-
-    // TODO: thumbnails
-    // TODO: exclude current post
+		
     Post.model
       .find()
       .populate('categories')
       .where('categories').in([category.id])
       .sort({publishedDate: 'desc'})
-      .limit(4)
+      .limit(5)
       .exec(function (err, items) {
         if (err) return res.apiError('database error', err);
         if (!items || items.length === 0) return res.apiError('not found');
