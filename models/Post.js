@@ -22,7 +22,7 @@ Post.add({
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 }
 	},
-	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
+	categories: { type: Types.Relationship, ref: 'PostCategory', many: true, required: true, initial: true},
 	visits: {type: Types.Number, noedit: true, default: 0},
 	url: {type: Types.Url, noedit: true}
 });
