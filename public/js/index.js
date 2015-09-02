@@ -72,3 +72,7 @@ var navigationMenu = responsiveNav(".nav-collapse", { // Selector
 jQuery('.nav-collapse').on('click', 'a', function () {
 	navigationMenu.close();
 });
+
+function refreshAdsense() {
+	(adsbygoogle = window.adsbygoogle || []).push({});
+}

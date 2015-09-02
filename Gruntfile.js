@@ -4,7 +4,7 @@ var config = {
 	port: 3000
 };
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
 
 	// Load grunt tasks automatically
 	require('load-grunt-tasks')(grunt);
@@ -99,7 +99,7 @@ module.exports = function(grunt) {
 
 		copy: {
 			production: {
-				files:[
+				files: [
 					{expand: true, cwd: 'public/fonts/', src: ['**'], dest: 'dist/fonts/'},
 					{expand: true, cwd: 'public/images/', src: ['**'], dest: 'dist/images/'}
 				]
@@ -191,37 +191,61 @@ module.exports = function(grunt) {
 					'dist/js/script.js': '.tmp/js/script.js'
 				}
 			}
+		},
+		insert: {
+			options: {},
+			styles: {
+				src: 'dist/styles/site.min.css',
+				dest: 'dist/index.html',
+				match: '//STYLES_HERE'
+			},
+			scripts: {
+				src: 'dist/js/script.js',
+				dest: 'dist/index.html',
+				match: '[[SCRIPTS_HERE]]'
+			}
+		},
+		cssmin: {
+			options: {
+				shorthandCompacting: false,
+				roundingPrecision: -1
+			},
+			target: {
+				files: {
+					'dist/styles/site.min.css': ['dist/styles/site.css']
+				}
+			}
 		}
 	});
 
 	// load jshint
-	grunt.registerTask('lint', function(target) {
+	grunt.registerTask('lint', function (target) {
 		grunt.task.run([
 			'jshint'
 		]);
 	});
 
 	// default option to connect server
-	grunt.registerTask('serve', function(target) {
+	grunt.registerTask('serve', function (target) {
 		grunt.task.run([
 			'jshint',
 			'concurrent:dev'
 		]);
 	});
 
-	grunt.registerTask('server', function() {
+	grunt.registerTask('server', function () {
 		grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
 		grunt.task.run(['serve:' + target]);
 	});
 
-	grunt.registerTask('mobilegen', function() {
+	grunt.registerTask('mobilegen', function () {
 		grunt.task.run([
 			'clean:mobiclean',
 			'copy:mobicopy'
 		]);
 	});
 
-	grunt.registerTask('prod', function() {
+	grunt.registerTask('prod', function () {
 		grunt.task.run([
 			'clean:production',
 			'compile-handlebars:production',
@@ -229,7 +253,9 @@ module.exports = function(grunt) {
 			'less:production',
 			'concat:production',
 			'uglify:production',
-			'copy:production'
+			'copy:production',
+			'cssmin', 
+			'insert'
 		]);
 	});
 

@@ -92,7 +92,8 @@ function PostUtils() {
     try {
       $headers.each(function (index) {
         if (index === 3) throw BreakException; 
-					$(this).after('<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><ins class="adsbygoogle" style="display:inline-block;width:336px;height:280px" data-ad-client="ca-pub-3833845702235676" data-ad-slot="'+adSlots[index]+'"></ins> <script> (adsbygoogle = window.adsbygoogle || []).push({}); </script>');
+				$(this).after("<ins class='adsbygoogle' style='display:inline-block;width:336px;height:280px' data-ad-client='ca-pub-3833845702235676' data-ad-slot='"+adSlots[index]+"'></ins>");
+				refreshAdsense();
       });
     } catch (e) {
       if (e !== BreakException) throw e;

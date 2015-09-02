@@ -22,7 +22,7 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
       inc;
 
     $scope.posts = [];
-		$scope.busyLoading = true;
+		$scope.busyLoading = false;
 		
     activate();
 
