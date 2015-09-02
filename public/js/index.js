@@ -53,7 +53,7 @@ jQuery(window).scroll(function(event) {
 	}
 });
 
-responsiveNav(".nav-collapse", { // Selector
+var navigationMenu = responsiveNav(".nav-collapse", { // Selector
 	animate: true, // Boolean: Use CSS3 transitions, true or false
 	transition: 284, // Integer: Speed of the transition, in milliseconds
 	label: "", // String: Label for the navigation toggle
@@ -69,3 +69,6 @@ responsiveNav(".nav-collapse", { // Selector
 	close: function(){} // Function: Close callback
 });
 
+jQuery('.nav-collapse').on('click', 'a', function () {
+	navigationMenu.close();
+});

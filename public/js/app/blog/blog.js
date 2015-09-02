@@ -19,16 +19,16 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
   .controller('HomeCtrl', ['Post', 'Posts', 'PostByCategory', '$routeParams', '$scope', 'PostUtils', '$rootScope', function (Post, Posts, PostByCategory, $routeParams, $scope, PostUtils, $rootScope) {
     var skip,
       limit,
-      inc,
-      busyLoading = true;
+      inc;
 
     $scope.posts = [];
-
+		$scope.busyLoading = true;
+		
     activate();
 
     $scope.loadMore = function () {
-      if (!busyLoading) {
-        busyLoading = true;
+      if (!$scope.busyLoading) {
+				$scope.busyLoading = true;
         Posts.query({skip: skip, limit: limit, categoryKey: $routeParams.key}, LoadMoreSuccessFn);
       }
     };
@@ -41,8 +41,8 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
 
     function initInc() {
       skip = 0;
-      limit = 6;
-      inc = 6;
+      limit = 9;
+      inc = 9;
     }
 
 		function setDocumentTitle() {
@@ -62,14 +62,14 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
         $scope.posts.push(post);
       });
       skip += inc;
-      busyLoading = false;
+			$scope.busyLoading = false;
     }
 
     function PostsSuccessFn(data) {
       $scope.posts = data;
       PostUtils.setTimeAgo($scope.posts);
       skip += inc;
-      busyLoading = false;
+			$scope.busyLoading = false;
     }
   }]);
 
