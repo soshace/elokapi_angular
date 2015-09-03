@@ -7,6 +7,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta property="og:title" content="Workday Sets Price Range for I.P.O." ng-bind="documentTitle"/>
     <title ng-bind="documentTitle"></title>
     <!--<meta property="og:title" content="CircoViral" />-->
     <meta name="description" content="">
@@ -35,6 +36,7 @@
         <link rel="stylesheet" href="/styles/site.css">
 	{{/if}}
 
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
     <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
@@ -84,7 +86,7 @@
                     <ul>
                         <li>
                             <a href="javascript:void(0);"
-                               onclick="cv_share_window('http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>');"
+                               onclick="cv_share_window('http://www.facebook.com/sharer/sharer.php?u='+window.location.href);"
                                class="share-button facebook"></a>
                         </li>
                         <li>
@@ -103,7 +105,7 @@
 
 <!---------------------------------
 --------------Main Content------ -->
-<section id="main-content-single-page" class="main-content clearfix">
+<section id="main-content" class="main-content clearfix">
         <div class="container" ng-view></div>
         <!-- main article content     -->
 
@@ -119,12 +121,10 @@
     <div id="fb-root"></div>
     <!--<script>window.fbAsyncInit=function(){FB.init({appId:"144003659275226",xfbml:!0,version:"v2.4"})},function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||(o=e.createElement(n),o.id=t,o.src="//connect.facebook.net/en_US/sdk.js",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");</script>-->
     <!-- FACEBOOK INITIALIZATION -->
-
-    <!--<link href="http://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">-->
-    <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <!--<script src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>-->
 </footer>
 <!---------------------------------
 --------------//Footer----------- -->
+
 </body>
 </html>

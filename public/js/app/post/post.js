@@ -6,7 +6,11 @@ angular
 		$routeProvider.when('/post/:slug', {
 			templateUrl: '/views/post' + template_ext,
 			controller: 'PostCtrl'
-		});
+		}).
+			otherwise({
+				redirectTo: '/'
+			});
+		;
 	}])
 	.controller('PostCtrl', PostCtrl);
 
@@ -22,7 +26,9 @@ function PostCtrl($sce, $routeParams, $rootScope, $scope, Post, PostsRecent, Pos
 		$scope.post.content.brief = $sce.trustAsHtml($scope.post.content.brief);
 		PostsRecent.query({key: post.categories[0].key}, function (recentPosts) {
 			PostUtils.setTimeAgo(recentPosts);
-			recentPosts = recentPosts.filter( function(item) {return !(item._id == post._id);});
+			recentPosts = recentPosts.filter(function (item) {
+				return !(item._id == post._id);
+			});
 			$scope.recentPosts = recentPosts;
 			PostUtils.addAdsense($('article'));
 			PostUtils.onPostRender();
