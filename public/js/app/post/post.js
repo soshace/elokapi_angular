@@ -16,8 +16,8 @@ function PostCtrl($sce, $routeParams, $rootScope, $scope, Post, PostsRecent, Pos
 	Post.get({slug: $routeParams.slug}, function (post) {
 		$rootScope.documentTitle = post.title;
 		PostUtils.setTimeAgo(post);
-		post.watsAppLink = 'whatsapp://' + post.title + ' : ' + location.href;
 		$scope.post = post;
+		$scope.post.whatsAppLink = 'whatsapp://' + $scope.post.slug;
 		$scope.post.content.extended = $sce.trustAsHtml($scope.post.content.extended);
 		$scope.post.content.brief = $sce.trustAsHtml($scope.post.content.brief);
 		PostsRecent.query({key: post.categories[0].key}, function (recentPosts) {
@@ -25,6 +25,7 @@ function PostCtrl($sce, $routeParams, $rootScope, $scope, Post, PostsRecent, Pos
 			$scope.recentPosts = recentPosts;
 			PostUtils.addAdsense($('article'));
 			PostUtils.onPostRender();
+			PostUtils.onPageLoad();
 		}, ErrorFn);
 
 	}, ErrorFn);

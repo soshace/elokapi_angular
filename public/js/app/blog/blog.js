@@ -22,7 +22,7 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
       inc;
 
     $scope.posts = [];
-		$scope.busyLoading = false;
+		$scope.busyLoading = true;
 		
     activate();
 
@@ -70,6 +70,7 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
       PostUtils.setTimeAgo($scope.posts);
       skip += inc;
 			$scope.busyLoading = false;
+			PostUtils.onPageLoad();
     }
   }]);
 

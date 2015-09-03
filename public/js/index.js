@@ -1,5 +1,7 @@
 // Config params for the Angular App
-var template_ext = '.html',
+var
+	contentLoaded = false,
+	template_ext = '.html',
 	host = (function() {
 		return '//' + location.host + '/';
 	})();
@@ -76,3 +78,4 @@ jQuery('.nav-collapse').on('click', 'a', function () {
 function refreshAdsense() {
 	(adsbygoogle = window.adsbygoogle || []).push({});
 }
+

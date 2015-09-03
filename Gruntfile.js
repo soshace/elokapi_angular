@@ -197,7 +197,7 @@ module.exports = function (grunt) {
 			styles: {
 				src: 'dist/styles/site.min.css',
 				dest: 'dist/index.html',
-				match: '//STYLES_HERE'
+				match: '[[STYLES_HERE]]'
 			},
 			scripts: {
 				src: 'dist/js/script.js',

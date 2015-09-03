@@ -7,23 +7,36 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{[{documentTitle}]}</title>
+    <title ng-bind="documentTitle"></title>
     <!--<meta property="og:title" content="CircoViral" />-->
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 	{{#if production}}
-        <style>//STYLES_HERE</style>
+        <script async src='/js/script.js'></script>
+        <!--<script>[[SCRIPTS_HERE]]</script>-->
+
+        <style>[[STYLES_HERE]]</style>
 	{{else}}
+        <!--Add scripts that are globally required by your site here.-->
+        <script src='/js/lib/jquery/dist/jquery.js'></script>
+        <script src='/js/lib/responsive-nav/responsive-nav.js'></script>
+        <script src='/js/lib/angular/angular.js'></script>
+        <script src='/js/lib/ngInfiniteScroll/build/ng-infinite-scroll.js'></script>
+        <script src='/js/lib/angular-sanitize/angular-sanitize.js'></script>
+        <script src='/js/lib/angular-route/angular-route.js'></script>
+        <script src='/js/lib/angular-resource/angular-resource.js'></script>
+        <script src='/js/index.js'></script>
+        <script src='/js/app/services.js'></script>
+        <script src='/js/app/directives.js'></script>
+        <script src='/js/app/blog/blog.js'></script>
+        <script src='/js/app/post/post.js'></script>
+        <script src='/js/app/main.js'></script>
+
         <link rel="stylesheet" href="/styles/site.css">
 	{{/if}}
-    <!-- FACEBOOK INITIALIZATION -->
-    <!--<script>!function(e,n,t){var s,c=e.getElementsByTagName(n)[0];e.getElementById(t)||(s=e.createElement(n),s.id=t,s.async=!0,s.src="//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.3&appId=1609874635937523",c.parentNode.insertBefore(s,c))}(document,"script","facebook-jssdk");</script>-->
-    <!--<div id="fb-root"></div>-->
-    <div id="fb-root"></div>
-    <script>window.fbAsyncInit=function(){FB.init({appId:"144003659275226",xfbml:!0,version:"v2.4"})},function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||(o=e.createElement(n),o.id=t,o.src="//connect.facebook.net/en_US/sdk.js",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");</script>
-    <!-- FACEBOOK INITIALIZATION -->
+
+    <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
 <body class="body" id="body">
 
@@ -41,15 +54,15 @@
                         <a href="/category/{[{category.key}]}">
                             <div class="nav-indicator"
                                  style="background-color:{[{category.color}]}"></div>
-                            <div>{[{category.name}]}</div>
+                            <div ng-bind="category.name"></div>
                         </a>
                     </li>
                 </ul>
                 <div class="like-us-button">
-                    <iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fcircoviral&amp;width=147&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21&amp;appId=674350519339283"
-                            scrolling="no" frameborder="0"
-                            style="border:none; overflow:hidden; width:147px; height:21px;vertical-align:middle;"
-                            allowTransparency="true"></iframe>
+                    <iframe id="likeButtonIframe"
+                    scrolling="no" frameborder="0"
+                    style="border:none; overflow:hidden; width:147px; height:21px;vertical-align:middle;"
+                    allowTransparency="true"></iframe>
                 </div>
             </nav>
         </div>
@@ -74,28 +87,14 @@
 <!---------------------------------
 --------------Footer------------ -->
 <footer id="footer" class="footer">
-	{{#if production}}
-        <!--<script async src='/js/script.js'></script>-->
-        <script>[[SCRIPTS_HERE]]</script>
-	{{else}}
-        <!--Add scripts that are globally required by your site here.-->
-        <script src='/js/lib/jquery/dist/jquery.js'></script>
-        <script src='/js/lib/responsive-nav/responsive-nav.js'></script>
-        <script src='/js/lib/angular/angular.js'></script>
-        <script src='/js/lib/ngInfiniteScroll/build/ng-infinite-scroll.js'></script>
-        <script src='/js/lib/angular-sanitize/angular-sanitize.js'></script>
-        <script src='/js/lib/angular-route/angular-route.js'></script>
-        <script src='/js/lib/angular-resource/angular-resource.js'></script>
-        <script src='/js/index.js'></script>
-        <script src='/js/app/services.js'></script>
-        <script src='/js/app/directives.js'></script>
-        <script src='/js/app/blog/blog.js'></script>
-        <script src='/js/app/post/post.js'></script>
-        <script src='/js/app/main.js'></script>
-	{{/if}}
-    <script async src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <!-- FACEBOOK INITIALIZATION -->
+    <div id="fb-root"></div>
+    <!--<script>window.fbAsyncInit=function(){FB.init({appId:"144003659275226",xfbml:!0,version:"v2.4"})},function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||(o=e.createElement(n),o.id=t,o.src="//connect.facebook.net/en_US/sdk.js",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");</script>-->
+    <!-- FACEBOOK INITIALIZATION -->
+	
+    <!--<link href="http://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">-->
+    <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
+    <!--<script src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>-->
 </footer>
 <!---------------------------------
 --------------//Footer----------- -->

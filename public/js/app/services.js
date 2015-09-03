@@ -45,7 +45,8 @@ function PostUtils() {
   return {
     setTimeAgo: setTimeAgo,
     addAdsense: addAdsense,
-		onPostRender: onPostRender
+		onPostRender: onPostRender,
+		onPageLoad: onPageLoad
   };
 
   function setTimeAgo(posts) {
@@ -117,5 +118,48 @@ function PostUtils() {
 
 			$(this).attr('src', src);
 		});
+	}
+
+	function onPageLoad() {
+		var
+			scripts = [
+				'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
+			],
+			styles = [
+				'http://fonts.googleapis.com/css?family=Open+Sans:700,400',
+				'http://fonts.googleapis.com/css?family=Montserrat:400,700'
+			];
+
+		if (!contentLoaded) {
+			loadExtraContent('script', scripts);
+			loadExtraContent('link', styles);
+			loadFacebookModules();
+			contentLoaded = true;
+		}
+		
+		function loadExtraContent(elemTag, content) {
+			var elem = document.createElement(elemTag);
+			content.forEach(function (link) {
+				if (elemTag == 'script') {
+					elem.src = link;
+				} else if (elemTag == 'link') {
+					elem.href = link;
+				}
+				document.getElementsByTagName('head')[0].appendChild(elem);
+				console.log(link)
+			});
+
+		}
+		
+		function loadFacebookModules() {
+			var iframe,
+				appId = "144003659275226",
+				src = "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fcircoviral&amp;width=147&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21&amp;appId="+appId;
+						
+			window.fbAsyncInit=function(){FB.init({appId:appId,xfbml:!0,version:"v2.4"})},function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||(o=e.createElement(n),o.id=t,o.src="//connect.facebook.net/en_US/sdk.js",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");
+			iframe = document.getElementById('likeButtonIframe');
+			iframe.src = src;
+		}
+		
 	}
 }
