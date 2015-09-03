@@ -126,8 +126,7 @@ function PostUtils() {
 				'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'
 			],
 			styles = [
-				'http://fonts.googleapis.com/css?family=Open+Sans:700,400',
-				'http://fonts.googleapis.com/css?family=Montserrat:400,700'
+				'https://fonts.googleapis.com/css?family=Raleway:400,600'
 			];
 
 		if (!contentLoaded) {
@@ -155,8 +154,16 @@ function PostUtils() {
 			var iframe,
 				appId = "144003659275226",
 				src = "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fcircoviral&amp;width=147&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21&amp;appId="+appId;
-						
-			window.fbAsyncInit=function(){FB.init({appId:appId,xfbml:!0,version:"v2.4"})},function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||(o=e.createElement(n),o.id=t,o.src="//connect.facebook.net/en_US/sdk.js",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");
+
+			(function(d, s, id) { 
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.async=true;
+				js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.3&appId="+appId;
+				fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+			
 			iframe = document.getElementById('likeButtonIframe');
 			iframe.src = src;
 		}

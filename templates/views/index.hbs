@@ -45,26 +45,56 @@
 <header class="header" id="header">
     <div class="header-container" ng-controller="MainCtrl">
         <div class="columns twelve">
-            <div class="logo">
-                <a href="/"><span class="pink">Circo</span><span class="lightblack">viral</span></a>
-            </div>
-            <nav class="nav-collapse">
-                <ul>
-                    <li ng-repeat="category in categories">
-                        <a href="/category/{[{category.key}]}">
-                            <div class="nav-indicator"
-                                 style="background-color:{[{category.color}]}"></div>
-                            <div ng-bind="category.name"></div>
-                        </a>
-                    </li>
-                </ul>
-                <div class="like-us-button">
-                    <iframe id="likeButtonIframe"
-                    scrolling="no" frameborder="0"
-                    style="border:none; overflow:hidden; width:147px; height:21px;vertical-align:middle;"
-                    allowTransparency="true"></iframe>
+            <div class="static-header">
+                <div class="logo">
+                    <a href="/">
+                        <img class="only-desktop" src="/images/logo.png" alt="">
+                        <img class="only-mobile" src="/images/logo-small.png" alt="">
+                    </a>
                 </div>
-            </nav>
+                <nav class="nav-collapse">
+                    <ul>
+                        <li ng-repeat="category in categories">
+                            <a href="/category/{[{category.key}]}">
+                                <div class="nav-indicator"
+                                     style="background-color:{[{category.color}]}"></div>
+                                <div ng-bind="category.name"></div>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="like-us-button">
+                        <iframe id="likeButtonIframe"
+                                scrolling="no" frameborder="0"
+                                style="border:none; overflow:hidden; width:147px; height:21px;vertical-align:middle;"
+                                allowTransparency="true"></iframe>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="static-share-header">
+            <div class="share-header-container">
+                <div class="logo">
+                    <a href="/">
+                        <img class="only-desktop" src="/images/logo.png" alt="">
+                        <img class="only-mobile" src="/images/logo-small.png" alt="">
+                    </a>
+                </div>
+
+                <div class="sharebar">
+                    <ul>
+                        <li>
+                            <a href="javascript:void(0);"
+                               onclick="cv_share_window('http://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>');"
+                               class="share-button facebook"></a>
+                        </li>
+                        <li>
+                            <a href="whatsapp://send?text={[{documentTitle}]}" class="share-button whatsapp"></a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
         </div>
     </div>
 </header>
@@ -74,10 +104,8 @@
 <!---------------------------------
 --------------Main Content------ -->
 <section id="main-content-single-page" class="main-content clearfix">
-    <div class="container">
-        <div ng-view></div>
+        <div class="container" ng-view></div>
         <!-- main article content     -->
-    </div>
 
 </section>
 <!---------------------------------
@@ -91,7 +119,7 @@
     <div id="fb-root"></div>
     <!--<script>window.fbAsyncInit=function(){FB.init({appId:"144003659275226",xfbml:!0,version:"v2.4"})},function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||(o=e.createElement(n),o.id=t,o.src="//connect.facebook.net/en_US/sdk.js",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");</script>-->
     <!-- FACEBOOK INITIALIZATION -->
-	
+
     <!--<link href="http://fonts.googleapis.com/css?family=Open+Sans:700,400" rel="stylesheet" type="text/css">-->
     <!--<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>-->
     <!--<script src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>-->

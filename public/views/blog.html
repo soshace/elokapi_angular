@@ -1,41 +1,45 @@
-<div>
-    <div class="columns twelve">
-        <div class="top-card clearfix">
-            <article>
-                <div class="content-wrapper">
-                    <a href="#">
-                        <img src="http://circoviral.com/wp-content/uploads/2015/09/Screen-Shot-2015-09-01-at-9.47.43-AM-550x291.png" alt="" width="946" height="500"/>
+<div class="columns twelve">
+	<div class="top-card clearfix">
+		<article>
+			<div class="content-wrapper">
+				<a href="#">
+					<img src="http://circoviral.com/wp-content/uploads/2015/09/Screen-Shot-2015-09-01-at-9.47.43-AM-550x291.png"
+						 alt="" width="946" height="500"/>
 
-                        <div class="header-info">
-                            <h1>This is just a testing header for the head information kept it</h1>
-                        </div>
-                    </a>
-                </div>
-            </article>
-        </div>
-    </div>
+					<div class="header-info">
+						<h1>This is just a testing header for the head information kept it</h1>
+					</div>
+				</a>
+			</div>
+		</article>
+	</div>
+</div>
 
-    <!-- main article-content     -->
-    <div class="main-article-content clearfix" infinite-scroll='loadMore()'>
-        <div class="columns twelve">
+<!-- main article-content     -->
+<div class="main-article-content clearfix" infinite-scroll='loadMore()'>
+	<div class="columns twelve">
 
-            <article class="card card-split" style="border-color: {[{post.categories[0].color}]}" ng-repeat="post in posts" ng-click="openArticle()">
-                <a href="/post/{[{post.slug}]}">
-                    <div class="split-image"
-                         style="background-image:url({[{post.image.url}]});">
-                    </div>
+		<article class="card card-split color-omg" style="border-color: {[{post.categories[0].color}]}"
+				 ng-repeat="post in posts" ng-click="openArticle()">
+			<a href="/post/{[{post.slug}]}">
+				<div class="split-image"
+					 style="background-image:url({[{post.image.url}]});">
+				</div>
 
-                    <div class="header-info">
-                        <h1>{[{post.title}]}</h1>
-                    </div>
-                    <div class="card-meta-data clearfix">
-                        <span class="visitas">{[{post.visits}]}</span>
-                        <time class="time-ago">{[{post.timeAgo}]}</time>
-                    </div>
-                </a>
+				<div class="header-info">
+					<h1>{[{post.title}]}</h1>
+				</div>
+				<div class="card-meta-data clearfix">
+					<span class="visitas">{[{post.visits}]}</span>
+					<time class="time-ago">{[{post.timeAgo}]}</time>
+				</div>
+			</a>
 
-            </article>
-			<div id="infscr-loading" ng-show="busyLoading"><img alt="Loading..." src="/images/download.gif"><div><em>Loading the next set of posts...</em></div></div>
-        </div>
-    </div>
+		</article>
+		<div id="infscr-loading" ng-show="busyLoading && posts.length>0"><img alt="Loading..."
+																			  src="/images/download.gif">
+
+			<div><em>Loading the next set of posts...</em></div>
+		</div>
+	</div>
 </div>
