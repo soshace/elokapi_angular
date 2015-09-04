@@ -179,7 +179,8 @@ module.exports = function (grunt) {
 					'public/js/app/directives.js',
 					'public/js/app/blog/blog.js',
 					'public/js/app/post/post.js',
-					'public/js/app/main.js'
+					'public/js/app/main.js',
+					'public/js/lib/whatsapp-sharing/dist/whatsapp-button.js'
 				],
 				dest: '.tmp/js/script.js'
 			}

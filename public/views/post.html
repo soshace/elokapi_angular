@@ -1,76 +1,80 @@
-<div class="columns twelve">
-	<div class="color-omg main-article-container clearfix">
-		<!-- Main Article Content -->
-		<article class="article-content">
-			<div class="content-wrapper clearfix">
-				<h1>{[{post.title}]}</h1>
+<section id="main-content-single-page" class="main-content clearfix">
+	<div class="container">
+		<div class="columns twelve">
+			<div class="color-omg main-article-container clearfix">
+				<!-- Main Article Content -->
+				<article class="article-content">
+					<div class="content-wrapper clearfix">
+						<h1>{[{post.title}]}</h1>
 
-				<div class="clearfix sharebar">
-					<ul>
-						<li>
-							<a href="" ng-click="shareFacebook()" class="share-button facebook"></a>
-						</li>
-						<li>
-							<a ng-href="{[{post.whatsAppLink}]}" class="share-button whatsapp" data-href=""
-							   data-text="{[{post.title}]}" href=""></a>
-						</li>
-					</ul>
-				</div>
-				<div ng-bind-html="post.content.extended"></div>
-				<div class="clearfix sharebar">
-					<ul>
-						<li>
-							<a href="" ng-click="shareFacebook()" class="share-button facebook"></a>
-						</li>
-						<li>
-							<a ng-href="{[{post.whatsAppLink}]}" class="share-button whatsapp" data-href=""
-							   data-text="{[{post.title}]}" href=""></a>
-						</li>
-					</ul>
-
-				</div>
-
-				<div class="comment-div">
-					<div id="fb-comment-box" dyn-fb-comment-box
-						 page-href="http://developers.facebook.com/docs/plugins/comments/"></div>
-				</div>
-
-			</div>
-		</article>
-		<!-- Main Article Content -->
-
-		<!-- //Post Content Area -->
-		<div class="article-lead">
-			<!-- Popular-cards -->
-			<div class="very-popular-cards">
-				<article class="card card-split color-divertido"
-						 style="border-color: {[{recentPost.categories[0].color}]}"
-						 ng-repeat="recentPost in recentPosts">
-					<a href="/post/{[{recentPost.slug}]}">
-						<div class="split-image"
-							 style="background-image:url({[{recentPost.image.url}]});">
+						<div class="clearfix sharebar">
+							<ul>
+								<li>
+									<a href="" ng-click="shareFacebook()" class="share-button facebook"></a>
+								</li>
+								<li>
+									<a href="whatsapp://send" data-text="{[{post.title}]}" data-href="" class="share-button whatsapp"></a>
+								</li>
+							</ul>
 						</div>
-						<div class="header-info clearfix">
-							<h1>{[{recentPost.title}]}</h1>
+						<div ng-bind-html="post.content.extended"></div>
+						<div class="clearfix sharebar">
+							<ul>
+								<li>
+									<a href="" ng-click="shareFacebook()" class="share-button facebook"></a>
+								</li>
+								<li>
+									<a href="whatsapp://send" data-text="{[{post.title}]}" data-href="" class="share-button whatsapp"></a>
+								</li>
+							</ul>
+
 						</div>
-						<div class="card-meta-data clearfix">
+
+						<div class="comment-div">
+							<div id="fb-comment-box" dyn-fb-comment-box
+								 page-href="http://developers.facebook.com/docs/plugins/comments/"></div>
+						</div>
+
+					</div>
+				</article>
+				<!-- Main Article Content -->
+
+				<!-- //Post Content Area -->
+				<div class="article-lead">
+					<!-- Popular-cards -->
+					<div class="very-popular-cards">
+						<article class="card card-split color-divertido"
+								 style="border-color: {[{recentPost.categories[0].color}]}"
+								 ng-repeat="recentPost in recentPosts">
+							<a href="/post/{[{recentPost.slug}]}">
+								<div class="split-image"
+									 style="background-image:url({[{recentPost.image.url}]});">
+								</div>
+								<div class="header-info clearfix">
+									<h1>{[{recentPost.title}]}</h1>
+								</div>
+								<div class="card-meta-data clearfix">
 							<span class="visitas">{[{recentPost.visits}]} Visita<span
 									ng-if="recentPost.visits>1">s</span></span>
-							<time class="time-ago">{[{recentPost.timeAgo}]}</time>
-						</div>
-					</a>
+									<time class="time-ago">{[{recentPost.timeAgo}]}</time>
+								</div>
+							</a>
 
-				</article>
+						</article>
 
+					</div>
+					<!-- /Popular-cards -->
+
+					<div class="clearfix lead-links top-stories">
+						<a href="/" class="top-stories btn-logger">View Top Stories</a>
+					</div>
+
+
+				</div>
+				<!-- Post Lead Content  -->
 			</div>
-			<!-- /Popular-cards -->
-
-			<div class="clearfix lead-links top-stories">
-				<a href="/" class="top-stories btn-logger">View Top Stories</a>
-			</div>
-
-
 		</div>
-		<!-- Post Lead Content  -->
 	</div>
-</div>
+	<!-- main article content     -->
+
+</section>
