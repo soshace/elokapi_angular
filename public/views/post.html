@@ -13,7 +13,7 @@
 									<a href="" ng-click="shareFacebook()" class="share-button facebook"></a>
 								</li>
 								<li>
-									<a href="whatsapp://send" data-text="{[{post.title}]}" data-href="" class="share-button whatsapp"></a>
+									<a href="{[{post.whatsappLink}]}" class="share-button whatsapp"></a>
 								</li>
 							</ul>
 						</div>
@@ -24,7 +24,7 @@
 									<a href="" ng-click="shareFacebook()" class="share-button facebook"></a>
 								</li>
 								<li>
-									<a href="whatsapp://send" data-text="{[{post.title}]}" data-href="" class="share-button whatsapp"></a>
+									<a href="{[{post.whatsappLink}]}"  data-href="" class="share-button whatsapp"></a>
 								</li>
 							</ul>
 
@@ -34,7 +34,7 @@
 							<div id="fb-comment-box" dyn-fb-comment-box
 								 page-href="http://developers.facebook.com/docs/plugins/comments/"></div>
 						</div>
-
+						
 					</div>
 				</article>
 				<!-- Main Article Content -->

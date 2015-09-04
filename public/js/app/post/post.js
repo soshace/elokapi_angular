@@ -10,7 +10,6 @@ angular
 			otherwise({
 				redirectTo: '/'
 			});
-		;
 	}])
 	.controller('PostCtrl', PostCtrl);
 
@@ -21,7 +20,7 @@ function PostCtrl($sce, $routeParams, $rootScope, $scope, Post, PostsRecent, Pos
 		$rootScope.documentTitle = post.title;
 		PostUtils.setTimeAgo(post);
 		$scope.post = post;
-		$scope.post.whatsAppLink = 'whatsapp://' + $scope.post.slug;
+		$scope.post.whatsappLink = 'whatsapp://send?text=' + $scope.post.title + ' : ' + window.location.href;
 		$scope.post.content.extended = $sce.trustAsHtml($scope.post.content.extended);
 		$scope.post.content.brief = $sce.trustAsHtml($scope.post.content.brief);
 		PostsRecent.query({key: post.categories[0].key}, function (recentPosts) {
