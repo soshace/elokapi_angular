@@ -26,6 +26,7 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
 
 		$scope.posts = [];
 		$scope.busyLoading = true;
+		$rootScope.href = window.location.href;
 
 		activate();
 
