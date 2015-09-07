@@ -4,12 +4,10 @@
 			<div class="top-card clearfix">
 				<article>
 					<div class="content-wrapper">
-						<a href="#">
-							<img src="http://circoviral.com/wp-content/uploads/2015/09/Screen-Shot-2015-09-01-at-9.47.43-AM-550x291.png"
-								 alt="" width="946" height="500"/>
-
+						<a href="/post/{[{lastPost.slug}]}">
+							<img src="{[{lastPost.image.url}]}"alt="" width="946" height="500"/>
 							<div class="header-info">
-								<h1>This is just a testing header for the head information kept it</h1>
+								<h1>{[{lastPost.title}]}</h1>
 							</div>
 						</a>
 					</div>
@@ -22,7 +20,7 @@
 			<div class="columns twelve">
 
 				<article class="card card-split color-omg" style="border-color: {[{post.categories[0].color}]}"
-						 ng-repeat="post in posts" ng-click="openArticle()">
+						 ng-repeat="post in posts">
 					<a href="/post/{[{post.slug}]}">
 						<div class="split-image"
 							 style="background-image:url({[{post.image.url}]});">
@@ -40,7 +38,6 @@
 				</article>
 				<div id="infscr-loading" ng-show="busyLoading && posts.length>0"><img alt="Loading..."
 																					  src="/images/download.gif">
-
 					<div><em>Loading the next set of posts...</em></div>
 				</div>
 			</div>

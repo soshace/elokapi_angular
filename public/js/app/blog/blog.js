@@ -25,6 +25,7 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
 			inc;
 
 		$scope.posts = [];
+		$scope.lastPost = "";
 		$scope.busyLoading = true;
 		$rootScope.href = window.location.href;
 
@@ -40,7 +41,7 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
 		function activate() {
 			initInc();
 			setDocumentTitle();
-			Posts.query({skip: skip, limit: limit, categoryKey: $routeParams.key}, PostsSuccessFn);
+			Posts.query({skip: skip, limit: limit + 1, categoryKey: $routeParams.key}, PostsSuccessFn);
 		}
 
 		function initInc() {
@@ -71,6 +72,7 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
 
 		function PostsSuccessFn(data) {
 			$scope.posts = data;
+			$scope.lastPost = $scope.posts.shift();
 			PostUtils.setTimeAgo($scope.posts);
 			skip += inc;
 			$scope.busyLoading = false;
