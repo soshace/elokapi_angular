@@ -77,6 +77,7 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
 			skip += inc;
 			$scope.busyLoading = false;
 			PostUtils.onPageLoad();
+			PostUtils.toggleAdPanel(false);
 		}
 	}]);
 

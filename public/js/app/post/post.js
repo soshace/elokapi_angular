@@ -32,6 +32,7 @@ function PostCtrl($sce, $routeParams, $rootScope, $scope, Post, PostsRecent, Pos
 			PostUtils.addAdsense($('article'));
 			PostUtils.onPostRender();
 			PostUtils.onPageLoad();
+			PostUtils.toggleAdPanel(true);
 		}, ErrorFn);
 
 	}, ErrorFn);

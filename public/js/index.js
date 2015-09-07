@@ -4,7 +4,8 @@ var
 	template_ext = '.html',
 	host = (function () {
 		return '//' + location.host + '/';
-	})();
+	})(),
+	firstLoad = true;
 
 function cv_share_window(oUrl, oService) {
 	var w = 800;
