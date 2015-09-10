@@ -64,3 +64,17 @@ function refreshAdsense() {
 	(adsbygoogle = window.adsbygoogle || []).push({});
 }
 
+function addUnits() {
+	(adsbygoogle = window.adsbygoogle || []).push({
+		google_ad_client: "ca-pub-3833845702235676",
+		enable_page_level_ads: true
+	});
+	console.log('units added');
+	
+}
+
+$(document).on('click', 'a.google_vignette_inst', function (e) {
+	console.log(this);
+	e.preventDefault();
+	return false;
+});

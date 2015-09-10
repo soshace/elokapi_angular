@@ -3,18 +3,18 @@
 angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
 
 	.config(['$routeProvider', function ($routeProvider) {
-		$routeProvider.when('/category/:key', {
-			templateUrl: '/views/blog' + template_ext,
-			controller: 'HomeCtrl',
-			reloadOnSearch: false
-		})
-
+		$routeProvider
+			.when('/category/:key', {
+				templateUrl: '/views/blog' + template_ext,
+				controller: 'HomeCtrl',
+				reloadOnSearch: false
+			})
 			.when('/', {
 				templateUrl: '/views/blog' + template_ext,
 				controller: 'HomeCtrl',
 				reloadOnSearch: false
-			}).
-			otherwise({
+			})
+			.otherwise({
 				redirectTo: '/'
 			});
 	}])
@@ -35,6 +35,19 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
 			if (!$scope.busyLoading) {
 				$scope.busyLoading = true;
 				Posts.query({skip: skip, limit: limit, categoryKey: $routeParams.key}, LoadMoreSuccessFn);
+			}
+		};
+
+		$rootScope.shareFacebook = function () {
+			if (FB) {
+				FB.ui(
+					{
+						method: 'share',
+						href: window.location.href,
+						title: $rootScope.documentTitle,
+						picture: "http://elokapi.com/images/facebooklogo.jpg",
+						description: "Por el Amor A Los Animales. Únete Para Protegerlos."
+					});
 			}
 		};
 
@@ -77,7 +90,7 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
 			skip += inc;
 			$scope.busyLoading = false;
 			PostUtils.onPageLoad();
-			PostUtils.toggleAdPanel(false);
+			//PostUtils.toggleAdPanel(false);
 		}
 	}]);
 

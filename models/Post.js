@@ -29,9 +29,9 @@ Post.add({
 
 Post.schema.pre('save', function (next) {
 	this.url = process.env.HOST_NAME + 'post/' + this.slug;
-	if (this.content.extended) {
-		this.content.extended = updateImageSrc(this.content.extended);
-	}
+	//if (this.content.extended) {
+	//	this.content.extended = updateImageSrc(this.content.extended);
+	//}
 	next();
 });
 

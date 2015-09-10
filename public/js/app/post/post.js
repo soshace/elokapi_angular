@@ -6,10 +6,11 @@ angular
 		$routeProvider.when('/post/:slug', {
 			templateUrl: '/views/post' + template_ext,
 			controller: 'PostCtrl'
-		}).
-			otherwise({
+		})
+			.otherwise({
 				redirectTo: '/'
-			});
+			})
+		;
 	}])
 	.controller('PostCtrl', PostCtrl);
 
@@ -23,6 +24,7 @@ function PostCtrl($sce, $routeParams, $rootScope, $scope, Post, PostsRecent, Pos
 		$scope.post.whatsappLink = 'whatsapp://send?text=' + $scope.post.title + ' : ' + window.location.href;
 		$scope.post.content.extended = $sce.trustAsHtml($scope.post.content.extended);
 		$scope.post.content.brief = $sce.trustAsHtml($scope.post.content.brief);
+		$scope.currentUrl = window.location.href;
 		PostsRecent.query({key: post.categories[0].key}, function (recentPosts) {
 			PostUtils.setTimeAgo(recentPosts);
 			recentPosts = recentPosts.filter(function (item) {
@@ -32,12 +34,10 @@ function PostCtrl($sce, $routeParams, $rootScope, $scope, Post, PostsRecent, Pos
 			PostUtils.addAdsense($('article'));
 			PostUtils.onPostRender();
 			PostUtils.onPageLoad();
-			PostUtils.toggleAdPanel(true);
 		}, ErrorFn);
 
 	}, ErrorFn);
-
-	$scope.shareFacebook = function () {
+	$rootScope.shareFacebook = function () {
 		var post = $scope.post;
 		if (FB) {
 			FB.ui(

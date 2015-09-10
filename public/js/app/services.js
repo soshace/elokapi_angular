@@ -94,9 +94,9 @@ function PostUtils() {
 		try {
 			$headers.each(function (index) {
 				if (index === 3) throw BreakException;
-				$(this).after("<ins class='adsbygoogle' style='display:inline-block;width:336px;height:280px' data-ad-client='ca-pub-3833845702235676' data-ad-slot='" + adSlots[index] + "'></ins>");
-				refreshAdsense();
-			});
+				$(this).after("<div class='adsense_ad'><ins class='adsbygoogle' style='display:inline-block;width:336px;height:280px' data-ad-client='ca-pub-3833845702235676' data-ad-slot='" + adSlots[index] + "'></ins></div>");
+				refreshAdsense(); 
+			}); 
 		} catch (e) {
 			if (e !== BreakException) throw e;
 		}
@@ -111,15 +111,16 @@ function PostUtils() {
 
 		$('iframe[src^="https://www.youtube.com"]').wrap('<div class="video-container"/>');
 		$('a[title="resource"]').parent('p').addClass('wp-caption-text');
-		$.each($('img[data-source]'), function () {
-			tmpArr = $(this).data('source').split('/');
-			if (width) {
-				tmpArr.splice(tmpArr.length - 2, 0, width);
-			}
-			src = tmpArr.join('/');
-
-			$(this).attr('src', src);
-		});
+		$('p:has(a[title="resource"])').prev().css('margin', '0px');
+		//$.each($('img[data-source]'), function () {
+		//	tmpArr = $(this).data('source').split('/');
+		//	if (width) {
+		//		tmpArr.splice(tmpArr.length - 2, 0, width);
+		//	}
+		//	src = tmpArr.join('/');
+        //
+		//	$(this).attr('src', src);
+		//});
 
 	}
 
@@ -131,7 +132,6 @@ function PostUtils() {
 
 		if (!contentLoaded) {
 			loadExtraContent('script', scripts);
-			//injectFont();
 			loadFacebookModules();
 			contentLoaded = true;
 		}
@@ -151,19 +151,19 @@ function PostUtils() {
 		}
 
 		function loadFacebookModules() {
-			var iframe,
-				src = "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fcircoviral&amp;width=147&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21&amp;appId=" + 1609874635937523;
+			//var iframe,
+			//	src = "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fcircoviral&amp;width=147&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21&amp;appId=" + 1609874635937523;
 
 			(function(d, s, id) {
 				var js, fjs = d.getElementsByTagName(s)[0];
 				if (d.getElementById(id)) return;
 				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.4&appId=1609874635937523";
+				js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.4&appId=1702813169949091";
 				fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));
 
-			iframe = document.getElementById('likeButtonIframe');
-			iframe.src = src;
+			//iframe = document.getElementById('likeButtonIframe');
+			//iframe.src = src;
 		}
 	}
 	
