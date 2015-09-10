@@ -151,19 +151,13 @@ function PostUtils() {
 		}
 
 		function loadFacebookModules() {
-			//var iframe,
-			//	src = "//www.facebook.com/plugins/like.php?href=https%3A%2F%2Ffacebook.com%2Fcircoviral&amp;width=147&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=false&amp;height=21&amp;appId=" + 1609874635937523;
-
-			(function(d, s, id) {
+		(function(d, s, id) {
 				var js, fjs = d.getElementsByTagName(s)[0];
 				if (d.getElementById(id)) return;
 				js = d.createElement(s); js.id = id;
 				js.src = "//connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v2.4&appId=1702813169949091";
 				fjs.parentNode.insertBefore(js, fjs);
 			}(document, 'script', 'facebook-jssdk'));
-
-			//iframe = document.getElementById('likeButtonIframe');
-			//iframe.src = src;
 		}
 	}
 	
