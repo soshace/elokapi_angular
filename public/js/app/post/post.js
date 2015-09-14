@@ -39,11 +39,14 @@ function PostCtrl($sce, $routeParams, $rootScope, $scope, Post, PostsRecent, Pos
 	}, ErrorFn);
 	$rootScope.shareFacebook = function () {
 		var post = $scope.post;
+		$rootScope.imageUrl = post.image.url;
 		if (FB) {
 			FB.ui(
 				{
-					method: 'share',
+					name: post.title,
+					method: isMobile() ? 'feed' : 'share',
 					href: window.location.href,
+					link:window.location.href,
 					title: post.title,
 					picture: (!!post.image) ? post.image.url : "",
 					description: "Por el Amor A Los Animales. Únete Para Protegerlos."

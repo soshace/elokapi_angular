@@ -7,20 +7,23 @@ var
 	})(),
 	firstLoad = true;
 
-//jQuery(window).scroll(function (event) {
-//	if (jQuery(this).scrollTop() > 200) {
-//		jQuery('.static-share-header').css({
-//			transform: 'translateX(0px) translateY(0px)',
-//			transition: 'transform 500ms'
-//		});
-//	} else {
-//		jQuery('.static-share-header').css({
-//			transform: 'translateX(0px) translateY(-71px)',
-//			transition: 'transform 500ms'
-//		});
-//	}
-//});
+jQuery(window).scroll(function (event) {
+	if (jQuery(this).scrollTop() > 200) {
+		jQuery('.static-share-header').css({
+			transform: 'translateX(0px) translateY(0px)',
+			transition: 'transform 500ms'
+		});
+	} else {
+		jQuery('.static-share-header').css({
+			transform: 'translateX(0px) translateY(-71px)',
+			transition: 'transform 500ms'
+		});
+	}
+});
 
+function isMobile() {
+	return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+}
 function refreshAdsense() {
 	(adsbygoogle = window.adsbygoogle || []).push({});
 }

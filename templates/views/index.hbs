@@ -7,12 +7,10 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta property="og:title" content="Workday Sets Price Range for I.P.O." ng-bind="documentTitle"/>
     <title ng-bind="documentTitle"></title>
-    <meta property="og:title" content="elokapi.com" />
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	
+
     <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 </head>
@@ -40,7 +38,9 @@
                             </a>
                         </li>
                     </ul>
-                    <div class="fb-like like-us-button" data-href="https://www.facebook.com/pages/El-Okapi/807585516027249" data-layout="button_count" data-width="147px" data-action="like" data-show-faces="false" data-share="false"></div>
+                    <div class="fb-like like-us-button"
+                         data-href="https://www.facebook.com/pages/El-Okapi/807585516027249" data-layout="button_count"
+                         data-width="147px" data-action="like" data-show-faces="false" data-share="false"></div>
                 </nav>
             </div>
         </div>
@@ -59,7 +59,8 @@
                             <a href="javascript:void(0);" ng-click="shareFacebook()" class="share-button facebook"></a>
                         </li>
                         <li>
-                            <a href="whatsapp://send?text={[{documentTitle}]}:{[{href}]}" class="share-button whatsapp"></a>
+                            <a href="whatsapp://send?text={[{documentTitle}]}:{[{href}]}"
+                               class="share-button whatsapp"></a>
                         </li>
                     </ul>
                 </div>
@@ -89,11 +90,7 @@
 <!---------------------------------
 --------------Footer------------ -->
 <footer id="footer" class="footer">
-    <!-- FACEBOOK INITIALIZATION -->
     <div id="fb-root"></div>
-    <!--<script>window.fbAsyncInit=function(){FB.init({appId:"144003659275226",xfbml:!0,version:"v2.4"})},function(e,n,t){var o,c=e.getElementsByTagName(n)[0];e.getElementById(t)||(o=e.createElement(n),o.id=t,o.src="//connect.facebook.net/en_US/sdk.js",c.parentNode.insertBefore(o,c))}(document,"script","facebook-jssdk");</script>-->
-    <!-- FACEBOOK INITIALIZATION -->
-    <!--<script src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'></script>-->
 
 	{{#if production}}
         <script async src='/js/script.js'></script>
@@ -121,10 +118,17 @@
 
     <link href='https://fonts.googleapis.com/css?family=Raleway:400,600' rel='stylesheet' type='text/css'>
     <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-                    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
         ga('create', 'UA-67446325-1', 'auto');
         ga('send', 'pageview');

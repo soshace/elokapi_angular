@@ -42,7 +42,9 @@ angular.module('mainApp.blog', ['ngRoute', 'infinite-scroll'])
 			if (FB) {
 				FB.ui(
 					{
-						method: 'share',
+						name: "ElOkapi site",
+						method: isMobile() ? 'feed' : 'share',
+						link:window.location.href,
 						href: window.location.href,
 						title: $rootScope.documentTitle,
 						picture: "http://elokapi.com/images/facebooklogo.jpg",

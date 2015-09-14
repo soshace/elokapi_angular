@@ -20,6 +20,7 @@ angular.module('mainApp', [
 	.controller('MainCtrl', ['$scope', '$rootScope', '$location', '$timeout', 'PostCategory', function($scope, $rootScope, $location, $timeout, PostCategory) {
 		PostCategory.query(function (categories) {
 			$rootScope.categories = categories;
+			$rootScope.currentUrl = window.location.href;
 			initResponsiveMenu();
 		});
 	}]);
