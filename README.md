@@ -1,3 +1,5 @@
+Network for professionals [Soshace](https://soshace.com)
+
 # KeystoneJS + AngularJS Skeleton
 
 This project shows how to build [KeystoneJS](https://github.com/keystonejs/keystone) apps that use [AngularJS](https://angularjs.org) as front-end.
